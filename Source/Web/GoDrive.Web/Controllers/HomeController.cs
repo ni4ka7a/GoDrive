@@ -15,10 +15,11 @@
 
         public ActionResult Index()
         {
-            var org = this.organizations.GetALl()
-                .Select(o => o.User)
+            var organizations = this.organizations
+                .GetALl()
                 .ToList();
-            return this.View();
+
+            return this.View(organizations);
         }
     }
 }

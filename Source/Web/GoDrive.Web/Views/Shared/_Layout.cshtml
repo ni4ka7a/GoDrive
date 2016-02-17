@@ -8,25 +8,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
-
     <div>
         <div class="center indigo darken-4 white-text">
             Questions? Contact our award winning support team <a href="/contact" class="header-phone"><span class="icon-tel"></span>1-866-303-6061</a>
@@ -35,13 +16,13 @@
         <div id="nav-wrapper">
             <nav class="transparent">
                 <div class="nav-wrapper  white-text">
-                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo white-text" })
+                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo deep-purple-text text-darken-4" })
                     @Html.Partial("_LoginPartial")
                 </div>
             </nav>
         </div>
     </div>
-
+    
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -53,5 +34,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
