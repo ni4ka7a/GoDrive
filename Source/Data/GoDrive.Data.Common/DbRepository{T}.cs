@@ -34,17 +34,6 @@
             return this.DbSet;
         }
 
-        public T GetById(int id)
-        {
-            var item = this.DbSet.Find(id);
-            if (item.IsDeleted)
-            {
-                return null;
-            }
-
-            return item;
-        }
-
         public void Add(T entity)
         {
             this.DbSet.Add(entity);
@@ -64,6 +53,17 @@
         public void Save()
         {
             this.Context.SaveChanges();
+        }
+
+        public T GetById(object id)
+        {
+            var item = this.DbSet.Find(id);
+            if (item.IsDeleted)
+            {
+                return null;
+            }
+
+            return item;
         }
     }
 }

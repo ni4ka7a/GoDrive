@@ -21,10 +21,9 @@
         [MaxLength(3000)]
         public string AboutInfo { get; set; }
 
-        public string OwnerID { get; set; }
+        public string UserId { get; set; }
 
-        [ForeignKey("OwnerID")]
-        public User Owner { get; set; }
+        public User User { get; set; }
 
         public virtual ICollection<User> Students
         {

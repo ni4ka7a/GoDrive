@@ -56,7 +56,7 @@
                     {
                         Name = $"Org {i}",
                         AboutInfo = $"some info {i}",
-                        Owner = owner
+                        User = owner
                     };
 
                     context.Organizations.Add(organization);
