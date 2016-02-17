@@ -1,5 +1,6 @@
 ﻿namespace GoDrive.Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -33,7 +34,7 @@
                 // Create admin user
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName };
+                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName, CreatedOn = DateTime.Now};
                 userManager.Create(user, AdministratorPassword);
 
                 // Assign user to admin role

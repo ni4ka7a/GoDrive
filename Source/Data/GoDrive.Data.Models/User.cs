@@ -3,14 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
-
     using Common.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser, IDeletableEntity, IAuditInfo
     {
         [MaxLength(30)]
@@ -21,6 +20,16 @@
 
         // [Range(16, 130)]
         public int Age { get; set; }
+
+        public int? OrganizationId { get; set; }
+
+        public Organization Organization { get; set; }
+
+        public bool IsInOrganization { get; set; }
+
+        public int? JoinedOrganizationId { get; set; }
+
+        public Organization JoinedOrganization { get; set; }
 
         // IAuditInfo and IDeletableEntity properties
         public bool IsDeleted { get; set; }
