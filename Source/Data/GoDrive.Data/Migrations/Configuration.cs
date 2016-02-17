@@ -40,6 +40,30 @@
                 // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
             }
+
+            this.SeedOrganizations(context);
+        }
+
+        private void SeedOrganizations(ApplicationDbContext context)
+        {
+            if (!context.Organizations.Any())
+            {
+                var owner = context.Users.FirstOrDefault();
+
+                for (int i = 0; i < 5; i++)
+                {
+                    var organization = new Organization()
+                    {
+                        Name = $"Org {i}",
+                        AboutInfo = $"some info {i}",
+                        Owner = owner
+                    };
+
+                    context.Organizations.Add(organization);
+                }
+
+                context.SaveChanges();
+            }
         }
     }
 }
