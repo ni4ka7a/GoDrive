@@ -19,10 +19,10 @@
         [MaxLength(30)]
         public string LastName { get; set; }
 
-        // IAuditInfo and IDeletableEntity properties
-        [Range(16, 130)]
+        // [Range(16, 130)]
         public int Age { get; set; }
 
+        // IAuditInfo and IDeletableEntity properties
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }

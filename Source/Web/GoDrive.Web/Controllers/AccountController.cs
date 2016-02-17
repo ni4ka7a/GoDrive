@@ -11,7 +11,7 @@
 
     using GoDrive.Data.Models;
     using GoDrive.Web.ViewModels.Account;
-
+    using System;
     [Authorize]
     public class AccountController : BaseController
     {
@@ -171,6 +171,7 @@
             if (this.ModelState.IsValid)
             {
                 var user = new User { UserName = model.Email, Email = model.Email };
+                user.CreatedOn = DateTime.Now;
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

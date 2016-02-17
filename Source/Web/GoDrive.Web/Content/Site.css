@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
+    background-color: #4DA9EF;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,44 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#nav-wrapper {
+    padding: 20px 0;
+}
+
+#login-wrapper .input-field label, #register-wrapper .input-field label {
+    color: white;
+}
+
+#login-wrapper .input-field input[type=text], #register-wrapper .input-field input[type=text] {
+    border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+}
+
+#login-wrapper .input-field input[type=password], #register-wrapper .input-field input[type=password] {
+    border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+}
+
+#login-wrapper .input-field .prefix.active, #register-wrapper .input-field .prefix.active {
+     color: #000;
+   }
+
+/*#login-wrapper .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }*/
+
+#change-password-wrapper .input-field .prefix.active, #register-wrapper .input-field .prefix.active {
+     color: #000;
+   }
+
+#change-password-wrapper .input-field input[type=password], #register-wrapper .input-field input[type=password] {
+    border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+}
+
+#change-password-wrapper .input-field label, #register-wrapper .input-field label {
+    color: white;
 }

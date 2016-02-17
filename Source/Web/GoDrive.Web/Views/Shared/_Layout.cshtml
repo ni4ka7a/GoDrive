@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - GoDrive</title>
     @Styles.Render("~/Content/css")
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +25,23 @@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
+    </div>*@
+
+    <div>
+        <div class="center indigo darken-4 white-text">
+            Questions? Contact our award winning support team <a href="/contact" class="header-phone"><span class="icon-tel"></span>1-866-303-6061</a>
+        </div>
+
+        <div id="nav-wrapper">
+            <nav class="transparent">
+                <div class="nav-wrapper  white-text">
+                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo white-text" })
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </nav>
+        </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -34,7 +51,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
 </body>
 </html>
