@@ -5,10 +5,8 @@
     using System.Linq;
 
     using Common.Models;
-
-    using Microsoft.AspNet.Identity.EntityFramework;
-
     using GoDrive.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class ApplicationDbContext : IdentityDbContext<User>
     {

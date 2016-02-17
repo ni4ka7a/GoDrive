@@ -4,8 +4,8 @@
 
     using GoDrive.Data.Common.Models;
 
-    public interface IDbRepository<T> : IDbRepository<T, int>
-        where T : BaseModel<int>
+    public interface IDbRepository<T>
+        where T : class, IDeletableEntity, IAuditInfo
     {
     }
 

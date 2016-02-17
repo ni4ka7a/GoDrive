@@ -3,11 +3,11 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-
     using GoDrive.Common;
     using GoDrive.Data.Models;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {

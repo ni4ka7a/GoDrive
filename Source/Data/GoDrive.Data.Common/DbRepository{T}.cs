@@ -6,9 +6,8 @@
 
     using GoDrive.Data.Common.Models;
 
-    // TODO: Why BaseModel<int> instead BaseModel<TKey>?
     public class DbRepository<T> : IDbRepository<T>
-        where T : BaseModel<int>
+        where T : class, IAuditInfo, IDeletableEntity
     {
         public DbRepository(DbContext context)
         {
@@ -37,7 +36,13 @@
 
         public T GetById(int id)
         {
-            return this.All().FirstOrDefault(x => x.Id == id);
+            var item = this.DbSet.Find(id);
+            if (item.IsDeleted)
+            {
+                return null;
+            }
+
+            return item;
         }
 
         public void Add(T entity)
