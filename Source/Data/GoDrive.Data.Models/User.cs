@@ -1,6 +1,8 @@
 ﻿namespace GoDrive.Data.Models
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -11,6 +13,16 @@
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class User : IdentityUser, IDeletableEntity, IAuditInfo
     {
+        [MaxLength(30)]
+        public string FirstName { get; set; }
+
+        [MaxLength(30)]
+        public string LastName { get; set; }
+
+        // IAuditInfo and IDeletableEntity properties
+        [Range(16, 130)]
+        public int Age { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
