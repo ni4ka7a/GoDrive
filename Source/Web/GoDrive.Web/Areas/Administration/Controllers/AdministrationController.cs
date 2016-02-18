@@ -3,19 +3,22 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
+    using Data.Models;
     using GoDrive.Common;
     using GoDrive.Web.Controllers;
     using Services.Data.Contracts;
     using ViewModels.Organizations;
-    using Data.Models;
+    using System.Linq;
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class AdministrationController : BaseController
     {
         private IOrganizationsService organizations;
+        private IUsersService users;
 
-        public AdministrationController(IOrganizationsService organizations)
+        public AdministrationController(IOrganizationsService organizations, IUsersService users)
         {
             this.organizations = organizations;
+            this.users = users;
         }
 
         public ActionResult Index()
@@ -47,17 +50,14 @@
 
         private void BindUsers()
         {
-            var usersList = new List<SelectListItem>()
-            {
-                new SelectListItem() { Text = "pesho", Value = "1" },
-                new SelectListItem() { Text = "Gosho", Value = "1" },
-                new SelectListItem() { Text = "IIvan", Value = "1" },
-                new SelectListItem() { Text = "sta", Value = "1" },
-                new SelectListItem() { Text = "daw", Value = "1" },
-                new SelectListItem() { Text = "daw", Value = "1" },
-                new SelectListItem() { Text = "daw", Value = "1" },
-                new SelectListItem() { Text = "daw", Value = "1" }
-            };
+            var usersList = this.users
+                .GetAll()
+                .Select(u => new SelectListItem()
+                {
+                    Text = u.UserName,
+                    Value = u.Id
+                })
+                .ToList();
 
             this.ViewData["users"] = usersList;
         }
