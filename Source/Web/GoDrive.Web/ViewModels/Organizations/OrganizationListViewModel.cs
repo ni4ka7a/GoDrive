@@ -1,12 +1,13 @@
 ﻿namespace GoDrive.Web.ViewModels.Organizations
 {
-    using Data.Models;
-    using Infrastructure.Mapping;
+    using System.Collections.Generic;
 
-    public class OrganizationListViewModel : IMapFrom<Organization>
+    public class OrganizationListViewModel
     {
-        public string Name { get; set; }
+        public int CurrentPage { get; set; }
 
-        public string AboutInfo { get; set; }
+        public int TotalPages { get; set; }
+
+        public IEnumerable<OrganizationViewModel> Organizations { get; set; }
     }
 }
