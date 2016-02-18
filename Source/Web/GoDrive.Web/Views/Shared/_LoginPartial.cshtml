@@ -9,6 +9,14 @@
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
         </li>
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <li>
+                @Html.ActionLink("Administration", "Index", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "btn waves-effect waves-teal deep-purple darken-4" })
+            </li>
+        }
+
         <li><a class = "aves-effect waves-light btn deep-purple darken-4" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
