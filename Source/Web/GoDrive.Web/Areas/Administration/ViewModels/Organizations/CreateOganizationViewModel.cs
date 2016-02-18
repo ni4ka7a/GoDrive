@@ -1,10 +1,10 @@
 ﻿namespace GoDrive.Web.Areas.Administration.ViewModels.Organizations
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
+    using Data.Models;
+    using Infrastructure.Mapping;
 
-    public class CreateOganizationViewModel
+    public class CreateOganizationViewModel : IMapTo<Organization>
     {
         [Required]
         [MaxLength(20)]

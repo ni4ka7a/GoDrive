@@ -26,5 +26,11 @@
                 .All()
                 .Where(o => o.Id == id);
         }
+
+        public void Create(Organization organization)
+        {
+            this.organizations.Add(organization);
+            this.organizations.Save();
+        }
     }
 }

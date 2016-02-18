@@ -1,15 +1,23 @@
 ﻿namespace GoDrive.Web.Areas.Administration.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
-
     using GoDrive.Common;
     using GoDrive.Web.Controllers;
+    using Services.Data.Contracts;
     using ViewModels.Organizations;
-    using System.Collections.Generic;
+    using Data.Models;
     [Authorize(Roles = GlobalConstants.AdministratorRoleName)]
     public class AdministrationController : BaseController
     {
+        private IOrganizationsService organizations;
+
+        public AdministrationController(IOrganizationsService organizations)
+        {
+            this.organizations = organizations;
+        }
+
         public ActionResult Index()
         {
             return this.View();
@@ -31,7 +39,9 @@
                 return this.View(model);
             }
 
-            // TODO: Create the organization
+            var organizationToCreate = this.Mapper.Map<Organization>(model);
+            this.organizations.Create(organizationToCreate);
+
             return this.RedirectToAction<AdministrationController>(c => c.Index());
         }
 

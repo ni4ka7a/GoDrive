@@ -8,5 +8,7 @@
         IQueryable<Organization> GetALl();
 
         IQueryable<Organization> GetById(int id);
+
+        void Create(Organization organization);
     }
 }
