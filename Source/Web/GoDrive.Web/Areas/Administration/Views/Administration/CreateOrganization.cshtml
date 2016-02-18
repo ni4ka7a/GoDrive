@@ -1,0 +1,43 @@
+﻿@model GoDrive.Web.Areas.Administration.ViewModels.OrganizationInputModel
+
+<h2 class="white-text">Create New Organization</h2>
+
+<div id="create-organization-wrapper" class="row">
+    @using (Html.BeginForm("CreateOrganization", "Administration", FormMethod.Post, new { @class = "col s12", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "red-text" })
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.TextBoxFor(m => m.Name, new { })
+                @Html.LabelFor(m => m.Name, new { @for = "icon_prefix" })
+                <div>
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.TextBoxFor(m => m.AboutInfo, new { })
+                @Html.LabelFor(m => m.AboutInfo, new { @for = "icon_prefix" })
+                <div>
+                    @Html.ValidationMessageFor(m => m.AboutInfo, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn waves-effect waves-light deep-purple darken-4" type="submit" name="action">
+                    Create
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    }
+</div>

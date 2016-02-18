@@ -12,5 +12,10 @@
         {
             return this.View();
         }
+
+        public ActionResult CreateOrganization()
+        {
+            return this.View();
+        }
     }
 }
