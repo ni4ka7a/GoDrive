@@ -16,7 +16,8 @@
         <div id="nav-wrapper">
             <nav class="transparent">
                 <div class="nav-wrapper  white-text">
-                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo deep-purple-text text-darken-4" })
+                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo deep-purple darken-4" })
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     @Html.Partial("_LoginPartial")
                 </div>
             </nav>
@@ -34,6 +35,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
 
 </body>
 </html>
