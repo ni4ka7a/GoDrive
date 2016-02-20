@@ -1,0 +1,32 @@
+﻿<div class="row center">
+    <h2 class="white-text">Manage Users Requests</h2>
+
+    <div class="col m6">
+        @Ajax.ActionLink("New Request", "GetUnProceedRequest", null,
+           new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "request-partial-container",
+               InsertionMode = InsertionMode.Replace,
+               LoadingElementId = "spinner"
+
+           },
+           htmlAttributes: new { @class = "waves-effect waves-light btn deep-purple darken-4" }
+           )
+    </div>
+
+    <div class="col m6">
+        @Ajax.ActionLink("Proceeded Request", "GetUnProceedRequest", null,
+           new AjaxOptions
+           {
+               HttpMethod = "GET",
+               UpdateTargetId = "request-partial-container",
+               InsertionMode = InsertionMode.Replace
+           },
+           htmlAttributes: new { @class = "waves-effect waves-light btn deep-purple darken-4" }
+           )
+    </div>
+    <img id="spinner" class="center" src="/Images/ajax-loader.gif" style="display: none;">
+
+</div>
+<div id="request-partial-container"></div>

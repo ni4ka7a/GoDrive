@@ -209,6 +209,7 @@
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageInformationController.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\ManageRequestsController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\MyOrganization\MyOrganizationAreaRegistration.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
@@ -302,10 +303,14 @@
     <Content Include="Areas\MyOrganization\Views\Home\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\ManageUsers\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\ManageInformation\Index.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\ManageRequests\Index.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\_UsersRequestPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -353,7 +358,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="Areas\MyOrganization\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
