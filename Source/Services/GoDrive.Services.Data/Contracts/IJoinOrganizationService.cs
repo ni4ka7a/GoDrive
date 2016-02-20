@@ -6,6 +6,6 @@
     {
         void CreateRequest(JoinOrganizationRequest request);
 
-        bool CanJoinOrganization(string userId);
+        bool CannotJoinOrganization(string userId);
     }
 }

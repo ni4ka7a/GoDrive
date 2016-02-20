@@ -24,7 +24,7 @@
         {
             var userId = this.User.Identity.GetUserId();
 
-            if (this.joinOrganizationRequests.CanJoinOrganization(userId))
+            if (!this.joinOrganizationRequests.CannotJoinOrganization(userId))
             {
                 return this.RedirectToAction("CannotJoinOrganization", "Error");
             }

@@ -16,7 +16,7 @@
             this.users = users;
         }
 
-        public bool CanJoinOrganization(string userId)
+        public bool CannotJoinOrganization(string userId)
         {
             var user = this.users
                 .All()
@@ -28,14 +28,14 @@
                 return false;
             }
 
-            if (user.IsInOrganization == true)
+            if (user.IsInOrganization == true || user.OrganizationId != null)
             {
                 return false;
             }
 
             var hasApplied = this.joinOrganizationRequests
                 .All()
-                .Where(u => u.IsProceed == true)
+                .Where(u => u.IsProceed == false)
                 .Any(u => u.UserId == userId);
 
             if (hasApplied)
