@@ -1,16 +1,19 @@
 ﻿namespace GoDrive.Services.Data
 {
     using System;
+    using System.Linq;
     using Contracts;
     using GoDrive.Data.Common;
     using GoDrive.Data.Models;
-    using System.Linq;
+
     public class JoinOrganizationService : IJoinOrganizationService
     {
         private IDbRepository<JoinOrganizationRequest> joinOrganizationRequests;
         private IDbRepository<User> users;
 
-        public JoinOrganizationService(IDbRepository<JoinOrganizationRequest> joinOrganizationRequests, IDbRepository<User> users)
+        public JoinOrganizationService(
+            IDbRepository<JoinOrganizationRequest> joinOrganizationRequests,
+            IDbRepository<User> users)
         {
             this.joinOrganizationRequests = joinOrganizationRequests;
             this.users = users;
@@ -50,6 +53,22 @@
         {
             this.joinOrganizationRequests.Add(request);
             this.joinOrganizationRequests.Save();
+        }
+
+        public IQueryable<JoinOrganizationRequest> GetProceededRequests(int organizationId)
+        {
+            return this.joinOrganizationRequests
+                .All()
+                .Where(x => x.OrganizationId == organizationId)
+                .Where(x => x.IsProceed == true);
+        }
+
+        public IQueryable<JoinOrganizationRequest> GetUnProceededRequests(int organizationId)
+        {
+            return this.joinOrganizationRequests
+                .All()
+                .Where(x => x.OrganizationId == organizationId)
+                .Where(x => x.IsProceed == false);
         }
     }
 }

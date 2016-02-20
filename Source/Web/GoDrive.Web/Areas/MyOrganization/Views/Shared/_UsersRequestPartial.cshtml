@@ -1,4 +1,6 @@
-﻿<table class="centered">
+﻿@model IEnumerable<GoDrive.Web.Areas.MyOrganization.ViewModels.UserRequestViewModel>
+
+<table class="centered">
     <thead>
         <tr class="white-text">
             <th data-field="price">Username</th>
@@ -6,22 +8,29 @@
             <th data-field="name">Last Name</th>
             <th data-field="price">Age</th>
             <th data-field="price">Additional Information</th>
+            <th data-field="price">Created On</th>
             <th data-field="price">IsProceed</th>
             <th></th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>Stamat</td>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>15</td>
-            <td>info</td>
-            <td>trye</td>
-            <td>
-                @Html.ActionLink("Mark as Proceeded", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
-            </td>
-        </tr>
+
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Username</td>
+                <td>@request.FirstName</td>
+                <td>@request.LastName</td>
+                <td>@request.Age</td>
+                <td>@request.AdditionalInformation</td>
+                <td>@request.CreatedOn</td>
+                <td>@request.IsProceed</td>
+                <td>
+                    @Html.ActionLink("Mark as Proceeded", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                </td>
+            </tr>
+        }
+
     </tbody>
 </table>
