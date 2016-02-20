@@ -26,7 +26,7 @@
 
             if (this.joinOrganizationRequests.CanJoinOrganization(userId))
             {
-                // TODO: rediect to custom page
+                return this.RedirectToAction("CannotJoinOrganization", "Error");
             }
 
             var organization = this.organizations

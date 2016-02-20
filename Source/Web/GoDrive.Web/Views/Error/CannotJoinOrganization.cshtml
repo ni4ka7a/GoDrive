@@ -1,0 +1,13 @@
+﻿
+<div class="row center white-text">
+    <h2>You Cannot join Organization</h2>
+    <p>You are either already joined an Organization or have an unproceed Request</p>
+    <p>If you have any further problems please contact an Administrator</p>
+    <div class="col m6">
+        @Html.ActionLink("Go Home", "Index", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "waves-effect waves-light btn deep-purple darken-4" })
+    </div>
+
+    <div class="col m6">
+        @Html.ActionLink("Contact Administrator", "Index", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "waves-effect waves-light btn deep-purple darken-4" })
+    </div>
+</div>
