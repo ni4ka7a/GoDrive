@@ -214,6 +214,7 @@
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JoinOrganizationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -347,6 +348,7 @@
     <Content Include="Views\Organizations\Index.cshtml" />
     <Content Include="Views\Organizations\Details.cshtml" />
     <Content Include="Views\JoinOrganization\Index.cshtml" />
+    <Content Include="Views\Error\CannotJoinOrganization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
