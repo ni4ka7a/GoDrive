@@ -6,5 +6,7 @@
     public interface IUsersService
     {
         IQueryable<User> GetAll();
+
+        void AddOrganization(string userId, Organization organization);
     }
 }
