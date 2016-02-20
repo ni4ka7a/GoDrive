@@ -29,7 +29,9 @@
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
                 var role = new IdentityRole { Name = GlobalConstants.AdministratorRoleName };
+                var ownerRole = new IdentityRole { Name = GlobalConstants.OrganizationOwnerRoleName };
                 roleManager.Create(role);
+                roleManager.Create(ownerRole);
 
                 // Create admin user
                 var userStore = new UserStore<User>(context);
@@ -41,7 +43,21 @@
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
             }
 
+            this.SeedDefaultOrganizationImage(context);
             this.SeedOrganizations(context);
+        }
+
+        private void SeedDefaultOrganizationImage(ApplicationDbContext context)
+        {
+            if (!context.OrganizationImages.Any())
+            {
+                context.OrganizationImages.Add(new OrganizationImage()
+                {
+                    Url = "~/Images/defaultOrganizationImage.png"
+                });
+
+                context.SaveChanges();
+            }
         }
 
         private void SeedOrganizations(ApplicationDbContext context)
@@ -49,6 +65,7 @@
             if (!context.Organizations.Any())
             {
                 var owner = context.Users.FirstOrDefault();
+                var defaultImage = context.OrganizationImages.FirstOrDefault();
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -56,7 +73,8 @@
                     {
                         Name = $"Org {i}",
                         AboutInfo = $"some info {i}",
-                        User = owner
+                        User = owner,
+                        OrganizationImage = defaultImage
                     };
 
                     context.Organizations.Add(organization);

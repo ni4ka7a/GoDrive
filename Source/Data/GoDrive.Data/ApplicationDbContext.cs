@@ -15,6 +15,10 @@
         {
         }
 
+        public virtual IDbSet<OrganizationImage> OrganizationImages { get; set; }
+
+        public virtual IDbSet<CarImage> CarsImages { get; set; }
+
         public virtual IDbSet<Organization> Organizations { get; set; }
 
         public static ApplicationDbContext Create()
