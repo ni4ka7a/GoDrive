@@ -41,7 +41,8 @@
             var organizationModel = new JoinOrganizationViewModel()
             {
                 OrganizationId = organization.Id,
-                OrganizationName = organization.Name
+                OrganizationName = organization.Name,
+                Age = 17
             };
 
             return this.View(organizationModel);
