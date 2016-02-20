@@ -8,10 +8,12 @@
     public class Organization : BaseModel<int>
     {
         private ICollection<User> students;
+        private ICollection<CarImage> carsImages;
 
         public Organization()
         {
             this.students = new HashSet<User>();
+            this.carsImages = new HashSet<CarImage>();
         }
 
         [Required]
@@ -25,10 +27,20 @@
 
         public User User { get; set; }
 
+        public int OrganizationImageId { get; set; }
+
+        public OrganizationImage OrganizationImage { get; set; }
+
         public virtual ICollection<User> Students
         {
             get { return this.students; }
             set { this.students = value; }
+        }
+
+        public virtual ICollection<CarImage> CarsImages
+        {
+            get { return this.carsImages; }
+            set { this.carsImages = value; }
         }
     }
 }
