@@ -76,3 +76,12 @@ textarea {
     border-bottom: 1px solid white;
     box-shadow: 0 1px 0 0 white;
 }
+
+/*#all-organizations-wrapper img {
+    width : 275px;
+    height: 275px;
+}*/
+
+.side-nav.white-text {
+    background-color: #4DA9EF;
+}
