@@ -46,13 +46,18 @@
             return this.View(organizationListModel);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
             var model = this.organizations
                 .GetALl()
                 .Where(x => x.Id == id)
                 .To<OrganizationDetailsViewModel>()
                 .FirstOrDefault();
+
+            if (model == null)
+            {
+                return this.RedirectToAction("NotFound", "Error");
+            }
 
             return this.View(model);
         }

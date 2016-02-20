@@ -20,7 +20,7 @@
             this.joinOrganizationRequests = joinOrganizationRequests;
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int id = 0)
         {
             var userId = this.User.Identity.GetUserId();
 
@@ -35,7 +35,7 @@
 
             if (organization == null)
             {
-                throw new HttpException(404, "Invalid Organization");
+                return this.RedirectToAction("NotFound", "Error");
             }
 
             var organizationModel = new JoinOrganizationViewModel()
