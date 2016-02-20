@@ -1,11 +1,10 @@
 ﻿namespace GoDrive.Web.ViewModels.Home
 {
     using System.Collections.Generic;
+    using Organizations;
 
     public class IndexViewModel
     {
-        public IEnumerable<JokeViewModel> Jokes { get; set; }
-
-        public IEnumerable<JokeCategoryViewModel> Categories { get; set; }
+        public IEnumerable<OrganizationViewModel> Organizations { get; set; }
     }
 }

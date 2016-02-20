@@ -10,5 +10,7 @@
         public string Name { get; set; }
 
         public string AboutInfo { get; set; }
+
+        public string OrganizationImageUrl { get; set; }
     }
 }

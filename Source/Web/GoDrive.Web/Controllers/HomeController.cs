@@ -2,7 +2,10 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using Services.Data.Contracts;
+    using ViewModels.Home;
+    using ViewModels.Organizations;
 
     public class HomeController : BaseController
     {
@@ -15,11 +18,17 @@
 
         public ActionResult Index()
         {
-            var organizations = this.organizations
+            var topOrganizations = this.organizations
                 .GetALl()
+                .To<OrganizationViewModel>()
                 .ToList();
 
-            return this.View(organizations);
+            var model = new IndexViewModel()
+            {
+                Organizations = topOrganizations
+            };
+
+            return this.View(model);
         }
     }
 }
