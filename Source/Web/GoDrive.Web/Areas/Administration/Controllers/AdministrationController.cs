@@ -58,7 +58,6 @@
             var organizationToCreate = this.Mapper.Map<Organization>(model);
 
             this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
-            //this.organizations.Create(organizationToCreate);
 
             return this.RedirectToAction<AdministrationController>(c => c.Index());
         }

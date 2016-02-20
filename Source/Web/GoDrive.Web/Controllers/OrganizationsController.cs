@@ -30,7 +30,7 @@
 
             var organizations = this.organizations
                 .GetALl()
-                .OrderBy(o => o.Students.Count())
+                .OrderByDescending(o => o.CreatedOn)
                 .Skip(organizationsToSkip)
                 .Take(GlobalConstants.OrganizationsPerPage)
                 .To<OrganizationViewModel>()
