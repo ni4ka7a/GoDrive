@@ -59,9 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IJoinOrganizationService.cs" />
     <Compile Include="Contracts\IOrganizationsService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Contracts\IOrganizationImagesService.cs" />
+    <Compile Include="JoinOrganizationService.cs" />
     <Compile Include="OrganizationImagesService.cs" />
     <Compile Include="OrganizationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

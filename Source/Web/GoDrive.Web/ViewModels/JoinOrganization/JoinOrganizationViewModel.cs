@@ -1,9 +1,10 @@
-﻿namespace GoDrive.Data.Models
+﻿namespace GoDrive.Web.ViewModels.JoinOrganization
 {
     using System.ComponentModel.DataAnnotations;
-    using Common.Models;
+    using Data.Models;
+    using Infrastructure.Mapping;
 
-    public class JoinOrganizationRequest : BaseModel<int>
+    public class JoinOrganizationViewModel : IMapTo<JoinOrganizationRequest>
     {
         [Required]
         [MaxLength(50)]
@@ -16,16 +17,12 @@
         [Range(17, 130)]
         public int Age { get; set; }
 
-        public bool IsProceed { get; set; }
-
+        [Display(Name = "Ask a Question")]
+        [DataType(DataType.MultilineText)]
         public string AdditionalInformation { get; set; }
-
-        public string UserId { get; set; }
-
-        public User User { get; set; }
 
         public int OrganizationId { get; set; }
 
-        public Organization Organization { get; set; }
+        public string OrganizationName { get; set; }
     }
 }
