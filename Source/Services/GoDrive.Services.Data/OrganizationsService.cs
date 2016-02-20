@@ -40,6 +40,11 @@
             organizationToUpdate.AboutInfo = organization.AboutInfo;
             organizationToUpdate.Name = organization.Name;
 
+            if (organization.OrganizationImage != null)
+            {
+                organizationToUpdate.OrganizationImage = organization.OrganizationImage;
+            }
+
             this.organizations.Save();
         }
     }

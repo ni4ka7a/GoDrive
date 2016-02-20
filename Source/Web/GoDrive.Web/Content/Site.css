@@ -92,3 +92,8 @@ textarea {
 .side-nav.white-text {
     background-color: #4DA9EF;
 }
+
+.card-image img {
+    width: 275px;
+    height: 160px;
+}

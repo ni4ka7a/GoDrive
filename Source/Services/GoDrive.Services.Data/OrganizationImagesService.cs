@@ -1,5 +1,6 @@
 ﻿namespace GoDrive.Services.Data
 {
+    using System;
     using System.Linq;
     using Common;
     using Contracts;
@@ -21,6 +22,20 @@
                 .All()
                 .Where(i => i.Name == GlobalConstants.DefaultImageName)
                 .FirstOrDefault();
+        }
+
+        public bool ValidateFileExtention(string extension)
+        {
+            var extensionToLowercase = extension.ToLower();
+
+            if (extensionToLowercase == GlobalConstants.JpgFileExtension ||
+                extensionToLowercase == GlobalConstants.PngFileExtension ||
+                extensionToLowercase == GlobalConstants.JpegFileExtension)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

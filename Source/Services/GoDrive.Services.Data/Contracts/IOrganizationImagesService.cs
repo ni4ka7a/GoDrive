@@ -5,5 +5,7 @@
     public interface IOrganizationImagesService
     {
         OrganizationImage GetDefaultImage();
+
+        bool ValidateFileExtention(string extension);
     }
 }
