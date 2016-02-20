@@ -12,6 +12,8 @@
         [MaxLength(3000)]
         public string OrganizationDescription { get; set; }
 
+        public bool IsProceed { get; set; }
+
         public string UserId { get; set; }
 
         public User User { get; set; }
