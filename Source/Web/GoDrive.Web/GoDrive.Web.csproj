@@ -207,12 +207,18 @@
     <Compile Include="Areas\Administration\Controllers\ManageOrganizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\ManageInformationController.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\ManageUsersController.cs" />
+    <Compile Include="Areas\MyOrganization\MyOrganizationAreaRegistration.cs" />
+    <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
+    <Compile Include="Filters\AutorizeOrganizationOwnerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,6 +294,11 @@
     <Content Include="Areas\Administration\Views\ManageUsers\Index.cshtml" />
     <Content Include="Areas\Administration\Views\ManageOrganizations\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Administration\CreateOrganization.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\web.config" />
+    <Content Include="Areas\MyOrganization\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Home\Index.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\ManageUsers\Index.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\ManageInformation\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -336,6 +347,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Areas\MyOrganization\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

@@ -43,8 +43,21 @@
                 return this.View(model);
             }
 
+            var owner = this.users
+                .GetAll()
+                .Where(u => u.Id == model.UserId)
+                .FirstOrDefault();
+
+            if (owner.OrganizationId != null)
+            {
+                // TODO: add error to model state (the user already have an organization)
+                this.BindUsers();
+                return this.View(model);
+            }
+
             var organizationToCreate = this.Mapper.Map<Organization>(model);
-            this.organizations.Create(organizationToCreate);
+
+            this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
 
             return this.RedirectToAction<AdministrationController>(c => c.Index());
         }
@@ -53,6 +66,7 @@
         {
             var usersList = this.users
                 .GetAll()
+                .Where(u => u.OrganizationId == null)
                 .Select(u => new SelectListItem()
                 {
                     Text = u.UserName,

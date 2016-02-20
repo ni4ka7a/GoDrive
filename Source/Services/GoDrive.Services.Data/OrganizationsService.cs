@@ -32,5 +32,15 @@
             this.organizations.Add(organization);
             this.organizations.Save();
         }
+
+        public void Update(Organization organization)
+        {
+            var organizationToUpdate = this.organizations.GetById(organization.Id);
+
+            organizationToUpdate.AboutInfo = organization.AboutInfo;
+            organizationToUpdate.Name = organization.Name;
+
+            this.organizations.Save();
+        }
     }
 }

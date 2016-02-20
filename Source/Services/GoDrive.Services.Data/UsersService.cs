@@ -15,6 +15,14 @@
             this.users = users;
         }
 
+        public void AddOrganization(string userId, Organization organization)
+        {
+            var user = this.users.GetById(userId);
+            user.Organization = organization;
+
+            this.users.Save();
+        }
+
         public IQueryable<User> GetAll()
         {
             return this.users.All();
