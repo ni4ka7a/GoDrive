@@ -45,5 +45,16 @@
 
             return this.View(organizationListModel);
         }
+
+        public ActionResult Details(int id)
+        {
+            var model = this.organizations
+                .GetALl()
+                .Where(x => x.Id == id)
+                .To<OrganizationDetailsViewModel>()
+                .FirstOrDefault();
+
+            return this.View(model);
+        }
     }
 }
