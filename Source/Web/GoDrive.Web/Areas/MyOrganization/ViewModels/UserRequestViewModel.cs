@@ -12,6 +12,8 @@
 
         public string Username { get; set; }
 
+        public string UserId { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }

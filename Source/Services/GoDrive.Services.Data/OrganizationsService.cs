@@ -9,10 +9,12 @@
     public class OrganizationsService : IOrganizationsService
     {
         private IDbRepository<Organization> organizations;
+        private IDbRepository<User> users;
 
-        public OrganizationsService(IDbRepository<Organization> organizations)
+        public OrganizationsService(IDbRepository<Organization> organizations, IDbRepository<User> users)
         {
             this.organizations = organizations;
+            this.users = users;
         }
 
         public IQueryable<Organization> GetALl()
@@ -45,6 +47,21 @@
                 organizationToUpdate.OrganizationImage = organization.OrganizationImage;
             }
 
+            this.organizations.Save();
+        }
+
+        public void AddUser(string userId, int organizationId)
+        {
+            var user = this.users
+                .All()
+                .Where(x => x.Id == userId)
+                .FirstOrDefault();
+
+            user.IsInOrganization = true;
+            var organization = this.organizations
+                .GetById(organizationId);
+
+            organization.Students.Add(user);
             this.organizations.Save();
         }
     }

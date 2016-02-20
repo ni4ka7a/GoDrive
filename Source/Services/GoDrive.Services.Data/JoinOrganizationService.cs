@@ -70,5 +70,15 @@
                 .Where(x => x.OrganizationId == organizationId)
                 .Where(x => x.IsProceed == false);
         }
+
+        public void ProceedUserRequest(int id)
+        {
+            var request = this.joinOrganizationRequests
+                .GetById(id);
+
+            request.IsProceed = true;
+
+            this.joinOrganizationRequests.Save();
+        }
     }
 }

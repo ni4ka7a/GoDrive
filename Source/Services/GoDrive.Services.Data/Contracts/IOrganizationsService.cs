@@ -12,5 +12,7 @@
         void Create(Organization organization);
 
         void Update(Organization organization);
+
+        void AddUser(string userId, int organizationId);
     }
 }

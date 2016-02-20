@@ -12,5 +12,7 @@
         IQueryable<JoinOrganizationRequest> GetUnProceededRequests(int organizationId);
 
         IQueryable<JoinOrganizationRequest> GetProceededRequests(int organizationId);
+
+        void ProceedUserRequest(int id);
     }
 }

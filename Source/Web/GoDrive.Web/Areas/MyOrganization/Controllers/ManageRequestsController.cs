@@ -12,11 +12,16 @@
     {
         private IJoinOrganizationService joinOrganizationRequests;
         private IUsersService users;
+        private IOrganizationsService organizations;
 
-        public ManageRequestsController(IJoinOrganizationService joinOrganizationRequests, IUsersService users)
+        public ManageRequestsController(
+            IJoinOrganizationService joinOrganizationRequests,
+            IUsersService users,
+            IOrganizationsService organizations)
         {
             this.joinOrganizationRequests = joinOrganizationRequests;
             this.users = users;
+            this.organizations = organizations;
         }
 
         public ActionResult Index()
@@ -56,6 +61,26 @@
                 .ToList();
 
             return this.PartialView("_UsersRequestPartial", requests);
+        }
+
+        public ActionResult AddToOrganization(string userId, int id)
+        {
+            var organizationOwnerId = this.User.Identity.GetUserId();
+            var organizationId = this.users
+                .GetAll()
+                .Where(x => x.Id == organizationOwnerId)
+                .FirstOrDefault()
+                .OrganizationId;
+
+            this.organizations.AddUser(userId, id);
+            this.joinOrganizationRequests.ProceedUserRequest(id);
+            return null;
+        }
+
+        public ActionResult RejectToOrganization(int id)
+        {
+            this.joinOrganizationRequests.ProceedUserRequest(id);
+            return null;
         }
     }
 }
