@@ -15,11 +15,16 @@
     {
         private IOrganizationsService organizations;
         private IUsersService users;
+        private IOrganizationImagesService organizationImages;
 
-        public AdministrationController(IOrganizationsService organizations, IUsersService users)
+        public AdministrationController(
+            IOrganizationsService organizations,
+            IUsersService users,
+            IOrganizationImagesService organizationImages)
         {
             this.organizations = organizations;
             this.users = users;
+            this.organizationImages = organizationImages;
         }
 
         public ActionResult Index()
@@ -55,7 +60,9 @@
                 return this.View(model);
             }
 
+            var defaultImage = this.organizationImages.GetDefaultImage();
             var organizationToCreate = this.Mapper.Map<Organization>(model);
+            organizationToCreate.OrganizationImage = defaultImage;
 
             this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
 
