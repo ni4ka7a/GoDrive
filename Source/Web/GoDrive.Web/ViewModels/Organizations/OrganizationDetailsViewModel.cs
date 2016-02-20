@@ -18,6 +18,8 @@
 
         public DateTime CreatedOn { get; set; }
 
+        public string OrganizationImageUrl { get; set; }
+
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Organization, OrganizationDetailsViewModel>()
