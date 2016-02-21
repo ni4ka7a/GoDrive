@@ -28,10 +28,10 @@
                 <td>@request.CreatedOn</td>
                 <td>@request.IsProceed</td>
                 <td>
-                    @Html.ActionLink("Add", "AddToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, id = request.Id, area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                    @Html.ActionLink("Add", "AddToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, id = request.OrganizationId, area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
                 </td>
                 <td>
-                    @Html.ActionLink("Decline", "RejectToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, id = request.Id, area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                    @Html.ActionLink("Decline", "RejectToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, id = request.OrganizationId, area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
                 </td>
             </tr>
         }

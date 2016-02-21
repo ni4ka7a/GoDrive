@@ -8,7 +8,7 @@
 
     public class UserRequestViewModel : IMapFrom<JoinOrganizationRequest>, IHaveCustomMappings
     {
-        public int Id { get; set; }
+        public int OrganizationId { get; set; }
 
         public string Username { get; set; }
 
