@@ -205,7 +205,9 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\ManageOrganizationsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ManageRequestsController.cs" />
     <Compile Include="Areas\Administration\Controllers\ManageUsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\OrganizationRequests\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageCarImagesController.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\UserRequestViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplyForOrganizationController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -238,6 +241,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\ApplyForOrganization\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\JoinOrganization\JoinOrganizationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
@@ -310,6 +314,8 @@
     <Content Include="Areas\MyOrganization\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Shared\_UsersRequestPartial.cshtml" />
     <Content Include="Areas\MyOrganization\Views\ManageCarImages\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -359,10 +365,10 @@
     <Content Include="Views\Organizations\Details.cshtml" />
     <Content Include="Views\JoinOrganization\Index.cshtml" />
     <Content Include="Views\Error\CannotJoinOrganization.cshtml" />
+    <Content Include="Views\ApplyForOrganization\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

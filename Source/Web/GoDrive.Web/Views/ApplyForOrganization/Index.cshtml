@@ -1,0 +1,49 @@
+﻿@model GoDrive.Web.ViewModels.ApplyForOrganization.CreateOrganizationRequestViewModel
+
+<h2 class="white-text">Create Your Own Organization</h2>
+
+<div id="register-wrapper" class="row">
+
+    @using (Html.BeginForm("Apply", "ApplyForOrganization", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary("", new { @class = "red-text" })
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.TextBoxFor(m => m.OrganizationName, new { })
+                @Html.LabelFor(m => m.OrganizationName, new { @for = "icon_prefix" })
+                <div>
+                    @Html.ValidationMessageFor(m => m.OrganizationName, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                @Html.EditorFor(m => m.OrganizationDescription, new { })
+                @Html.LabelFor(m => m.OrganizationDescription, new { @for = "icon_prefix" })
+                <div>
+                    @Html.ValidationMessageFor(m => m.OrganizationDescription, "", new { @class = "red-text" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn waves-effect waves-light deep-purple darken-4" type="submit" name="action">
+                    Apply
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -10,6 +10,10 @@
                 @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
             </li>
 
+            <li>
+                @Html.ActionLink("Create Organization", "Index", "ApplyForOrganization", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
             @if (User.IsInRole("Administrator"))
             {
                 <li>

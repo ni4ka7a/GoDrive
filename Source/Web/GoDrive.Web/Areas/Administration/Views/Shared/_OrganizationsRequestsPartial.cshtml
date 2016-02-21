@@ -1,0 +1,36 @@
+﻿@model IEnumerable<GoDrive.Web.Areas.Administration.ViewModels.OrganizationRequests.CreateOrganizationRequestViewModel>
+
+<table class="centered">
+    <thead>
+        <tr class="white-text">
+            <th data-field="price">Username</th>
+            <th data-field="id">Organization Name</th>
+            <th data-field="name">Description</th>
+            <th data-field="price">Created On</th>
+            <th data-field="price">IsProceed</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.UserName</td>
+                <td>@request.OrganizationName</td>
+                <td>@request.OrganizationDescription</td>
+                <td>@request.CreatedOn</td>
+                <td>@request.IsProceed</td>
+                <td>
+                    @Html.ActionLink("Create", "CreateOrganization", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                </td>
+                <td>
+                    @Html.ActionLink("Done", "ProceedRequest", "ManageRequests", routeValues: new { id = request.Id, area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
