@@ -68,7 +68,7 @@
                 var owner = context.Users.FirstOrDefault();
                 var defaultImage = context.OrganizationImages.FirstOrDefault();
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     var organization = new Organization()
                     {

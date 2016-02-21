@@ -8,5 +8,7 @@
         IQueryable<User> GetAll();
 
         void AddOrganization(string userId, Organization organization);
+
+        IQueryable<User> GetUsersForOrganization(string userId);
     }
 }
