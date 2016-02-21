@@ -1,0 +1,37 @@
+﻿
+<h2 class="white-text">Manage Car Images</h2>
+
+@using (Html.BeginForm("UploadCarImage", "ManageCarImages", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "red-text" })
+
+    <div class="file-field input-field">
+        <div class="btn  deep-purple darken-4">
+            <span>Browse Image</span>
+            <input type="file" name="file">
+        </div>
+        <div class="file-path-wrapper">
+            <input type="text" class="file-path validate" placeholder="Change The Organization Image">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn waves-effect waves-light deep-purple darken-4" type="submit" name="action">
+                Upload
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col m6">
+        <img class="materialboxed" data-caption="A picture of some deer and tons of trees" width="250" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRJFrRE_M_KDuW0ENaIY3AhXJXnuZvtlF4GFDWGO41-ndmr4spH">
+        @Html.ActionLink("Delete", "Index", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "waves-effect waves-light btn deep-purple darken-4" })
+    </div>
+
+
+</div>
