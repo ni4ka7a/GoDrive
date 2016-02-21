@@ -90,3 +90,7 @@ textarea {
     width: 275px;
     height: 160px;
 }
+
+.car-images .col {
+    margin-bottom: 1%;
+}

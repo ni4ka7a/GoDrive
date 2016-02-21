@@ -9,7 +9,8 @@
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
     using Web.Controllers;
-
+    using ViewModels;
+    using Infrastructure.Mapping;
     public class ManageCarImagesController : BaseController
     {
         // TODO: replace this with carsImagesService
@@ -29,7 +30,33 @@
 
         public ActionResult Index()
         {
-            return this.View();
+            var currentUserId = this.User.Identity.GetUserId();
+            var organizationId = this.organizations
+                .GetALl()
+                .Where(o => o.UserId == currentUserId)
+                .Select(o => o.Id)
+                .FirstOrDefault();
+
+            var carImages = this.carImages
+                .GetImagesForOrganization(organizationId)
+                .To<CarImageViewModel>()
+                .ToList();
+
+            return this.View(carImages);
+        }
+
+        public ActionResult DeleteCarImage(int id)
+        {
+            var currentUserId = this.User.Identity.GetUserId();
+            var organizationId = this.organizations
+                .GetALl()
+                .Where(o => o.UserId == currentUserId)
+                .Select(o => o.Id)
+                .FirstOrDefault();
+
+            this.carImages.Delete(id, organizationId);
+
+            return this.RedirectToAction("Index");
         }
 
         [ValidateAntiForgeryToken]
@@ -41,7 +68,7 @@
 
                 if (!this.organizationImages.ValidateFileExtention(extension))
                 {
-                    this.TempData["error"] = $"The Image Should be {GlobalConstants.JpgFileExtension} or {GlobalConstants.PngFileExtension}."
+                    this.TempData["error"] = $"The Image Should be {GlobalConstants.JpgFileExtension} or {GlobalConstants.PngFileExtension}.";
                     return this.RedirectToAction("Index");
                 }
 
