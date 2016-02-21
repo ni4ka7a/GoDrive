@@ -42,6 +42,11 @@ textarea {
     box-shadow: 0 1px 0 0 white;
 }
 
+#login-wrapper .input-field textarea, #register-wrapper .input-field textarea {
+    border: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
 #login-wrapper .input-field .prefix.active, #register-wrapper .input-field .prefix.active {
     color: #000;
 }
