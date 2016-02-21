@@ -205,7 +205,9 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\ManageOrganizationsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ManageRequestsController.cs" />
     <Compile Include="Areas\Administration\Controllers\ManageUsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\OrganizationRequests\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageCarImagesController.cs" />
@@ -312,6 +314,8 @@
     <Content Include="Areas\MyOrganization\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Shared\_UsersRequestPartial.cshtml" />
     <Content Include="Areas\MyOrganization\Views\ManageCarImages\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -365,7 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,7 @@
 ﻿namespace GoDrive.Services.Data
 {
+    using System;
+    using System.Linq;
     using Contracts;
     using GoDrive.Data.Common;
     using GoDrive.Data.Models;
@@ -17,6 +19,20 @@
         {
             this.createOrganizationRequests.Add(request);
             this.createOrganizationRequests.Save();
+        }
+
+        public IQueryable<CreateOrganizationRequest> GetProceededRequests()
+        {
+            return this.createOrganizationRequests
+                .All()
+                .Where(x => x.IsProceed == true);
+        }
+
+        public IQueryable<CreateOrganizationRequest> GetUnProceededRequests()
+        {
+            return this.createOrganizationRequests
+                .All()
+                .Where(x => x.IsProceed == false);
         }
     }
 }
