@@ -8,6 +8,8 @@
 
     public class CreateOrganizationRequestViewModel : IMapFrom<CreateOrganizationRequest>, IHaveCustomMappings
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(20)]
         public string OrganizationName { get; set; }

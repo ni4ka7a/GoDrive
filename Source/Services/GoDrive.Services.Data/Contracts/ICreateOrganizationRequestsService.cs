@@ -10,5 +10,7 @@
         IQueryable<CreateOrganizationRequest> GetUnProceededRequests();
 
         IQueryable<CreateOrganizationRequest> GetProceededRequests();
+
+        void ProceedRequest(int id);
     }
 }

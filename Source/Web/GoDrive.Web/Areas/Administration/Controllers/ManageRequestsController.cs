@@ -40,5 +40,11 @@
 
             return this.PartialView("_OrganizationsRequestsPartial", requests);
         }
+
+        public ActionResult ProceedRequest(int id)
+        {
+            this.createOrganizationRequests.ProceedRequest(id);
+            return this.RedirectToAction("Index");
+        }
     }
 }

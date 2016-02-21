@@ -27,7 +27,7 @@
                     @Html.ActionLink("Create", "CreateOrganization", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
                 </td>
                 <td>
-                    @Html.ActionLink("Done", "RejectToOrganization", "ManageRequests", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                    @Html.ActionLink("Done", "ProceedRequest", "ManageRequests", routeValues: new { id = request.Id, area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
                 </td>
             </tr>
         }

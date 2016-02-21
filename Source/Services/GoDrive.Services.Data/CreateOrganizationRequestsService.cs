@@ -34,5 +34,15 @@
                 .All()
                 .Where(x => x.IsProceed == false);
         }
+
+        public void ProceedRequest(int id)
+        {
+            var request = this.createOrganizationRequests
+                .GetById(id);
+
+            request.IsProceed = true;
+
+            this.createOrganizationRequests.Save();
+        }
     }
 }
