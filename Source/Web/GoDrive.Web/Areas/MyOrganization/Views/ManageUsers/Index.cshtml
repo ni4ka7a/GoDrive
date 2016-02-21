@@ -1,23 +1,30 @@
-﻿<table class="centered">
+﻿@model IEnumerable<GoDrive.Web.Areas.MyOrganization.ViewModels.ManageUserViewModel>
+
+<table class="centered">
     <thead>
         <tr class="white-text">
+            <th data-field="id">Username</th>
             <th data-field="id">First Name</th>
             <th data-field="name">Last Name</th>
             <th data-field="price">Age</th>
-            <th data-field="price">Phone</th>
             <th></th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-            <td>$0.87</td>
-            <td>
-                @Html.ActionLink("Schedular", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
-            </td>
-        </tr>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Age</td>
+                <td>
+                    @Html.ActionLink("Schedular", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+                </td>
+            </tr>
+        }
+
     </tbody>
 </table>

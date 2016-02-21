@@ -7,12 +7,12 @@
 
     public class Organization : BaseModel<int>
     {
-        private ICollection<User> students;
+        private ICollection<User> users;
         private ICollection<CarImage> carsImages;
 
         public Organization()
         {
-            this.students = new HashSet<User>();
+            this.users = new HashSet<User>();
             this.carsImages = new HashSet<CarImage>();
         }
 
@@ -29,12 +29,13 @@
 
         public int OrganizationImageId { get; set; }
 
-        public OrganizationImage OrganizationImage { get; set; }
+        public virtual OrganizationImage OrganizationImage { get; set; }
 
+        [ForeignKey("JoinedOrganizationId")]
         public virtual ICollection<User> Students
         {
-            get { return this.students; }
-            set { this.students = value; }
+            get { return this.users; }
+            set { this.users = value; }
         }
 
         public virtual ICollection<CarImage> CarsImages

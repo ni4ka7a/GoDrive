@@ -208,10 +208,13 @@
     <Compile Include="Areas\Administration\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\ManageCarImagesController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageInformationController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageRequestsController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\MyOrganization\MyOrganizationAreaRegistration.cs" />
+    <Compile Include="Areas\MyOrganization\ViewModels\CarImageViewModel.cs" />
+    <Compile Include="Areas\MyOrganization\ViewModels\ManageUserViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\UserRequestViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -306,6 +309,7 @@
     <Content Include="Areas\MyOrganization\Views\ManageInformation\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Shared\_UsersRequestPartial.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\ManageCarImages\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

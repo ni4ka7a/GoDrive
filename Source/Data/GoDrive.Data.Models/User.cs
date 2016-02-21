@@ -23,13 +23,13 @@
 
         public int? OrganizationId { get; set; }
 
-        public Organization Organization { get; set; }
+        public virtual Organization Organization { get; set; }
 
         public bool IsInOrganization { get; set; }
 
         public int? JoinedOrganizationId { get; set; }
 
-        public Organization JoinedOrganization { get; set; }
+        public virtual Organization JoinedOrganization { get; set; }
 
         // IAuditInfo and IDeletableEntity properties
         public bool IsDeleted { get; set; }

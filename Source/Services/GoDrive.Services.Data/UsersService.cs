@@ -9,10 +9,12 @@
     public class UsersService : IUsersService
     {
         private IDbRepository<User> users;
+        private IDbRepository<Organization> organizations;
 
-        public UsersService(IDbRepository<User> users)
+        public UsersService(IDbRepository<User> users, IDbRepository<Organization> organizations)
         {
             this.users = users;
+            this.organizations = organizations;
         }
 
         public void AddOrganization(string userId, Organization organization)
@@ -26,6 +28,19 @@
         public IQueryable<User> GetAll()
         {
             return this.users.All();
+        }
+
+        public IQueryable<User> GetUsersForOrganization(string userId)
+        {
+            var organizationId = this.users
+                .All()
+                .Where(u => u.Id == userId)
+                .FirstOrDefault()
+                .OrganizationId;
+
+            return this.users
+                .All()
+                .Where(u => u.JoinedOrganizationId == organizationId);
         }
     }
 }
