@@ -74,13 +74,13 @@
 
             this.organizations.AddUser(userId, id);
             this.joinOrganizationRequests.ProceedUserRequest(id);
-            return null;
+            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
         }
 
         public ActionResult RejectToOrganization(int id)
         {
             this.joinOrganizationRequests.ProceedUserRequest(id);
-            return null;
+            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
         }
     }
 }
