@@ -251,6 +251,7 @@
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\JoinedOrganization\DriveEventViewModel.cs" />
     <Compile Include="ViewModels\JoinedOrganization\JoinedOrganizationViewModel.cs" />
+    <Compile Include="ViewModels\JoinedOrganization\MyProgressViewModel.cs" />
     <Compile Include="ViewModels\JoinOrganization\JoinOrganizationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -345,6 +346,7 @@
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\KendoUI\kendo.timezones.min.js" />
     <Content Include="Scripts\materialize.min.js" />
+    <Content Include="Scripts\progressbar.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

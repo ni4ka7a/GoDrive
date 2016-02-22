@@ -1,9 +1,50 @@
-﻿
+﻿@model GoDrive.Web.ViewModels.JoinedOrganization.MyProgressViewModel
+
 <h2 class="white-text center">My Current Progress</h2>
 
-<h3 class="white-text center">Not Implemented :(</h3>
+<div class="row white-text">
+    <div class="col s6">
+        <div id="progress-container"></div>
+    </div>
 
+    <div class="col s6">
+            <strong>Drived Hours:</strong>
+            <i>@Model.DrivedHours</i>
+    </div>
+
+    <div class="col s6">
+        <strong>Hours Left:</strong>
+        <i>@Model.HoursLeft</i>
+    </div>
+
+</div>
+
+<input type="hidden" id="currentProgress" value="@Model.CurrentProgress" />
 
 @section Scripts {
     @Scripts.Render("~/bundles/progressBar")
+
+    <script>
+        var percentage = parseFloat($("#currentProgress").val());
+
+
+        var circle = new ProgressBar.Circle('#progress-container', {
+            color: 'white',
+            text: {
+                value: '0'
+            },
+            strokeWidth: 6,
+            fill: '#311b92',
+            trailWidth: 1,
+            duration: 1500,
+            step: function (state, bar) {
+                bar.setText((bar.value() * 100).toFixed(0) + '%');
+            }
+        });
+
+        console.log(percentage);
+        circle.animate(1, function () {
+            circle.animate(percentage);
+        })
+    </script>
 }
