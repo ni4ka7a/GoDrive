@@ -2,15 +2,16 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Data.Models;
     using Filters;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
+    using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
     using ViewModels;
     using Web.Controllers;
-    using Microsoft.AspNet.Identity;
-    using Data.Models;
+
     [AutorizeOrganizationOwnerAttribute]
     public class SchedulerController : BaseController
     {
