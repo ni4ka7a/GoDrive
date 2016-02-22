@@ -53,8 +53,8 @@
             {
                 context.OrganizationImages.Add(new OrganizationImage()
                 {
-                    Name = "DefaultImage",
-                    Url = "/Images/defaultOrganizationImage.png"
+                    Name = GlobalConstants.DefaultImageName,
+                    Url = GlobalConstants.DefaultImagePath
                 });
 
                 context.SaveChanges();
