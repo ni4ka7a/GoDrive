@@ -35,7 +35,6 @@
         [HttpGet]
         public ActionResult CreateOrganization()
         {
-
             this.BindUsers();
             return this.View();
         }

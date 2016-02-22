@@ -6,7 +6,7 @@
     using Services.Data.Contracts;
     using ViewModels.OrganizationRequests;
     using Web.Controllers;
-    using ViewModels.Organizations;
+
     public class ManageRequestsController : BaseController
     {
         private ICreateOrganizationRequestsService createOrganizationRequests;

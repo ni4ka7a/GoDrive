@@ -1,17 +1,16 @@
 ﻿namespace GoDrive.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using GoDrive.Data.Models;
+    using GoDrive.Web.ViewModels.Account;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using GoDrive.Data.Models;
-    using GoDrive.Web.ViewModels.Account;
-    using System;
     [Authorize]
     public class AccountController : BaseController
     {

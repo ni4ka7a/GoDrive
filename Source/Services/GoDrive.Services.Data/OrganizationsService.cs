@@ -54,7 +54,7 @@
         {
             int organizationId;
 
-            var organizationExists = int.TryParse(organizationIdString, out  organizationId);
+            var organizationExists = int.TryParse(organizationIdString, out organizationId);
 
             if (!organizationExists)
             {

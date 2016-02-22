@@ -21,7 +21,6 @@
             this.users = users;
         }
 
-
         public ActionResult Index()
         {
             var currentUserId = this.User.Identity.GetUserId();

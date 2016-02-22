@@ -4,12 +4,10 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using GoDrive.Web.ViewModels.Manage;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-
-    using GoDrive.Web.ViewModels.Manage;
 
     [Authorize]
     public class ManageController : BaseController
