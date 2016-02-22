@@ -58,6 +58,13 @@
                 .Where(x => x.OrganizationId == organizationId);
         }
 
+        public IQueryable<DriveEvent> GetEventsByUser(string userId)
+        {
+            return this.driveEvents
+                .All()
+                .Where(x => x.UserID == userId);
+        }
+
         public void Update(DriveEvent driveEvent)
         {
             var eventToUpdate = this.driveEvents

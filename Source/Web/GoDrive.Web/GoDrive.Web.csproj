@@ -249,6 +249,7 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\ApplyForOrganization\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\JoinedOrganization\DriveEventViewModel.cs" />
     <Compile Include="ViewModels\JoinedOrganization\JoinedOrganizationViewModel.cs" />
     <Compile Include="ViewModels\JoinOrganization\JoinOrganizationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
@@ -382,6 +383,7 @@
     <Content Include="Views\Error\CannotJoinOrganization.cshtml" />
     <Content Include="Views\ApplyForOrganization\Index.cshtml" />
     <Content Include="Views\JoindedOrganization\Index.cshtml" />
+    <Content Include="Views\JoindedOrganization\MyScheduler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

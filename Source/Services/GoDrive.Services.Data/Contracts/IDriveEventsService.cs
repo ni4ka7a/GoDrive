@@ -14,5 +14,8 @@
         void Delete(int driveEventId);
 
         IQueryable<DriveEvent> GetEventsByOrganization(string userId);
+
+        IQueryable<DriveEvent> GetEventsByUser(string userId);
+
     }
 }

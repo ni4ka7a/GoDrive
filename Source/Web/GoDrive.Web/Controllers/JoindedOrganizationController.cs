@@ -2,18 +2,22 @@
 {
     using System.Linq;
     using System.Web.Mvc;
-    using Services.Data.Contracts;
-    using Microsoft.AspNet.Identity;
     using Infrastructure.Mapping;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using Microsoft.AspNet.Identity;
+    using Services.Data.Contracts;
     using ViewModels.JoinedOrganization;
+
     [Authorize]
     public class JoindedOrganizationController : BaseController
     {
-        private IOrganizationsService organizations;
+        private IDriveEventsService driveEvents;
         private IUsersService users;
 
-        public JoindedOrganizationController(IUsersService users)
+        public JoindedOrganizationController(IUsersService users, IDriveEventsService driveEvents)
         {
+            this.driveEvents = driveEvents;
             this.users = users;
         }
 
@@ -40,6 +44,26 @@
                 .FirstOrDefault();
 
             return this.View(organization);
+        }
+
+        public ActionResult MyScheduler()
+        {
+            return this.View();
+        }
+
+        public ActionResult Read([DataSourceRequest] DataSourceRequest request)
+        {
+            var userId = this.User.Identity.GetUserId();
+            return this.Json(
+                this.driveEvents
+                .GetEventsByUser(userId)
+                .To<DriveEventViewModel>()
+                .ToDataSourceResult(request));
+        }
+
+        public ActionResult MyProgress()
+        {
+            return this.View();
         }
     }
 }
