@@ -1,0 +1,21 @@
+﻿<ul class="side-nav white-text" id="mobile-demo">
+    <li>
+        @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    <li>
+        @Html.ActionLink("Register", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
+       {
+           id = "registerLink",
+           @class = "aves-effect waves-light btn deep-purple darken-4 white-text"
+       })
+    </li>
+
+    <li>
+        @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
+       {
+           id = "loginLink",
+           @class = "aves-effect waves-light btn deep-purple darken-4 white-text"
+       })
+    </li>
+</ul>

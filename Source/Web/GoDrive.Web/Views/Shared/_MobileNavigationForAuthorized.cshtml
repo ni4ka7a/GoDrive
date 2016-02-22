@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+
+<ul class="side-nav white-text" id="mobile-demo">
+    <li>
+        @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    @if (User.IsInRole("Administrator"))
+            {
+        <li>
+            @Html.ActionLink("Administration", "Index", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "white-text text-accent-4" })
+        </li>
+    }
+
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4 white-text" })
+    </li>
+
+    <li><a class="aves-effect waves-light btn deep-purple darken-4 white-text" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>

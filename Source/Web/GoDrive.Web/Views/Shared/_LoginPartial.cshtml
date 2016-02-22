@@ -28,24 +28,9 @@
             <li><a class="aves-effect waves-light btn deep-purple darken-4" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
         //For Mobile
-        <ul class="side-nav white-text" id="mobile-demo">
-            <li>
-                @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
-            </li>
 
-            @if (User.IsInRole("Administrator"))
-            {
-                <li>
-                    @Html.ActionLink("Administration", "Index", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "white-text text-accent-4" })
-                </li>
-            }
+        @Html.Partial("_MobileNavigationForAuthorized")
 
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4 white-text" })
-            </li>
-
-            <li><a class="aves-effect waves-light btn deep-purple darken-4 white-text" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
     }
 }
 else
@@ -72,25 +57,5 @@ else
         </li>
     </ul>
     //For mobile
-    <ul class="side-nav white-text" id="mobile-demo">
-        <li>
-            @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
-        </li>
-
-        <li>
-            @Html.ActionLink("Register", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
-       {
-           id = "registerLink",
-           @class = "aves-effect waves-light btn deep-purple darken-4 white-text"
-       })
-        </li>
-
-        <li>
-            @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
-       {
-           id = "loginLink",
-           @class = "aves-effect waves-light btn deep-purple darken-4 white-text"
-       })
-        </li>
-    </ul>
+    @Html.Partial("_MobileNavigationForUnAuthorized")
 }
