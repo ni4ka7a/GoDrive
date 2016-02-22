@@ -1,0 +1,51 @@
+﻿@model GoDrive.Web.ViewModels.JoinedOrganization.JoinedOrganizationViewModel
+
+<h2 class="white-text">Joined Organization</h2>
+
+@if (Model == null)
+{
+    <h4 class="white-text">Unfortunately You have <i>Not</i> join any Organization yet.</h4>
+    <h4 class="white-text">
+        GO change that
+        @Html.ActionLink("Here", "Index", "Organizations", null, new { @class = "deep-purple-text text-darken-4" })
+    </h4>
+} else
+	{
+
+<div class="row">
+    <div class="col s3">
+        <strong>Name:</strong>
+    </div>
+    <div class="col s3">
+        <i>@Model.Name</i>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s3">
+        <strong>About The Organization:</strong>
+    </div>
+    <div class="col s3">
+        <i>@Model.AboutInfo</i>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s3">
+        <strong>Check My Schedule:</strong>
+    </div>
+    <div class="col s3">
+        <a class="waves-effect waves-light btn deep-purple darken-4"><i class="material-icons left">query_builder</i>My Schedule</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s3">
+        <strong>Check My Progress:</strong>
+    </div>
+    <div class="col s3">
+        <a class="waves-effect waves-light btn deep-purple darken-4"><i class="material-icons left">swap_horiz</i>My Progress</a>
+    </div>
+</div>
+
+	}
