@@ -1,7 +1,7 @@
 ﻿namespace GoDrive.Services.Data.Contracts
 {
-    using GoDrive.Data.Models;
     using System.Linq;
+    using GoDrive.Data.Models;
 
     public interface IDriveEventsService
     {

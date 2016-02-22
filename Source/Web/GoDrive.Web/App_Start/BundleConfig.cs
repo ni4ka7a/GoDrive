@@ -22,6 +22,7 @@
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                       "~/Scripts/KendoUI/kendo.all.min.js",
+                      "~/Scripts/KendoUI/kendo.timezones.min.js",
                       "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
         }
 
@@ -32,6 +33,7 @@
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                      "~/Content/KendoUI/kendo.common.min.css",
+                     "~/Content/KendoUI/kendo.bootstrap.min.css",
                      "~/Content/KendoUI/kendo.default.min.css"));
         }
     }

@@ -62,11 +62,13 @@
     <Compile Include="CarImagesService.cs" />
     <Compile Include="Contracts\ICarImagesService.cs" />
     <Compile Include="Contracts\ICreateOrganizationRequestsService.cs" />
+    <Compile Include="Contracts\IDriveEventsService.cs" />
     <Compile Include="Contracts\IJoinOrganizationService.cs" />
     <Compile Include="Contracts\IOrganizationsService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Contracts\IOrganizationImagesService.cs" />
     <Compile Include="CreateOrganizationRequestsService.cs" />
+    <Compile Include="DriveEventsService.cs" />
     <Compile Include="JoinOrganizationService.cs" />
     <Compile Include="OrganizationImagesService.cs" />
     <Compile Include="OrganizationsService.cs" />

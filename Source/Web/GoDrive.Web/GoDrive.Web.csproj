@@ -219,6 +219,7 @@
     <Compile Include="Areas\MyOrganization\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\MyOrganization\MyOrganizationAreaRegistration.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\CarImageViewModel.cs" />
+    <Compile Include="Areas\MyOrganization\ViewModels\DriveEventViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\ManageUserViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\UserRequestViewModel.cs" />
@@ -322,6 +323,7 @@
     <Content Include="Areas\MyOrganization\Views\ManageCarImages\Index.cshtml" />
     <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\ManageUsers\Scheduler.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -334,6 +336,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.timezones.min.js" />
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
