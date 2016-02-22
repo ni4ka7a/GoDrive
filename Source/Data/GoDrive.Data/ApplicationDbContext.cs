@@ -25,6 +25,8 @@
 
         public virtual IDbSet<Organization> Organizations { get; set; }
 
+        public virtual IDbSet<DriveEvent> DriveEvents { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
