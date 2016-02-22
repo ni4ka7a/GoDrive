@@ -9,3 +9,4 @@
 /// <reference path="kendoui/kendo.aspnetmvc.min.js" />
 /// <reference path="kendoui/kendo.timezones.min.js" />
 /// <reference path="materialize.min.js" />
+/// <reference path="progressbar.min.js" />
