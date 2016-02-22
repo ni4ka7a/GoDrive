@@ -27,7 +27,7 @@
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
+                        <i class="material-icons prefix">vpn_key</i>
                         @Html.PasswordFor(m => m.Password, new { id = "icon_prefix" })
                         @Html.LabelFor(m => m.Password, new { @for = "icon_prefix" })
                         <div>
@@ -49,11 +49,6 @@
                     </p>
         }
     </section>
-    @*<div class="col-md-4">
-            <section id="socialLoginForm">
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
-        </div>*@
 </div>
 
 @section Scripts {
