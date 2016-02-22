@@ -19,10 +19,13 @@
 
         public ActionResult Index()
         {
-            var topOrganizations = this.organizations
+            var topOrganizations = this.Cache.Get(
+                "topOrganizations",
+                () => this.organizations
                 .GetTopOrganizations(GlobalConstants.TopOrganizationsCount)
                 .To<OrganizationViewModel>()
-                .ToList();
+                .ToList(),
+                30 * 60);
 
             var model = new IndexViewModel()
             {

@@ -85,7 +85,7 @@
         {
             return this.organizations
                 .All()
-                .OrderBy(x => x.Students.Count())
+                .OrderByDescending(x => x.Students.Count())
                 .ThenBy(x => x.Name)
                 .Take(topCount);
         }
