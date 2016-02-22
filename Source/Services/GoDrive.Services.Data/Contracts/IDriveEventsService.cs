@@ -12,5 +12,7 @@
         void Create(DriveEvent driveEvent);
 
         void Delete(int driveEventId);
+
+        IQueryable<DriveEvent> GetEventsByOrganization(string userId);
     }
 }

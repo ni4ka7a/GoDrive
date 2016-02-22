@@ -9,10 +9,12 @@
     public class DriveEventsService : IDriveEventsService
     {
         private IDbRepository<DriveEvent> driveEvents;
+        private IDbRepository<User> users;
 
-        public DriveEventsService(IDbRepository<DriveEvent> driveEvents)
+        public DriveEventsService(IDbRepository<DriveEvent> driveEvents, IDbRepository<User> users)
         {
             this.driveEvents = driveEvents;
+            this.users = users;
         }
 
         public void Create(DriveEvent driveEvent)
@@ -34,6 +36,19 @@
         public IQueryable<DriveEvent> GetAll()
         {
             return this.driveEvents.All();
+        }
+
+        public IQueryable<DriveEvent> GetEventsByOrganization(string userId)
+        {
+            var organizationId = this.users
+                .All()
+                .Where(x => x.Id == userId)
+                .FirstOrDefault()
+                .OrganizationId;
+
+            return this.driveEvents
+                .All()
+                .Where(x => x.OrganizationId == organizationId);
         }
 
         public void Update(DriveEvent driveEvent)
