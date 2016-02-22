@@ -30,9 +30,10 @@
 
         public ActionResult Read([DataSourceRequest] DataSourceRequest request)
         {
+            var userId = this.User.Identity.GetUserId();
             return this.Json(
                 this.driveEvents
-                .GetAll()
+                .GetEventsByOrganization(userId)
                 .To<DriveEventViewModel>()
                 .ToDataSourceResult(request));
         }
@@ -41,9 +42,10 @@
         {
             if (model != null && this.ModelState.IsValid)
             {
+                var currentUserId = this.User.Identity.GetUserId();
                 var driveEvent = this.Mapper.Map<DriveEvent>(model);
 
-                this.driveEvents.Create(driveEvent);
+                this.driveEvents.Create(driveEvent, currentUserId);
             }
 
             return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));

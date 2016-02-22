@@ -17,8 +17,15 @@
             this.users = users;
         }
 
-        public void Create(DriveEvent driveEvent)
+        public void Create(DriveEvent driveEvent, string organizationOwnerId)
         {
+            var organizationId = this.users
+                .All()
+                .Where(x => x.Id == organizationOwnerId)
+                .FirstOrDefault()
+                .OrganizationId;
+
+            driveEvent.OrganizationId = (int)organizationId;
             this.driveEvents.Add(driveEvent);
             this.driveEvents.Save();
         }

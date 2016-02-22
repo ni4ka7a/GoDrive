@@ -9,7 +9,7 @@
 
         void Update(DriveEvent driveEvent);
 
-        void Create(DriveEvent driveEvent);
+        void Create(DriveEvent driveEvent, string organizationOwnerId);
 
         void Delete(int driveEventId);
 
