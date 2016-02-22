@@ -32,8 +32,9 @@
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/materialize.min.css", "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
-                     "~/Content/KendoUI/kendo.common.min.css",
                      "~/Content/KendoUI/kendo.bootstrap.min.css",
+                     "~/Content/KendoUI/kendo.common.min.css",
+                     "~/Content/KendoUI/kendo.common-bootstrap.min.css",
                      "~/Content/KendoUI/kendo.default.min.css"));
         }
     }
