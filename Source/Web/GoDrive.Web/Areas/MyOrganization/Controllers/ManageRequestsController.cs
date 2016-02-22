@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
+    using Common;
     using Extensions;
     using Filters;
     using Infrastructure.Mapping;
@@ -47,7 +48,7 @@
                 .To<UserRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_UsersRequestPartial", requests);
+            return this.PartialView(GlobalConstants.UserRequestsPratialName, requests);
         }
 
         public ActionResult GetProceedRequest()
@@ -76,7 +77,7 @@
 
             if (!userAddedSuccessfully)
             {
-                this.TempData["error"] = "The user cannot be added becouse he is in another company already.";
+                this.TempData[GlobalConstants.TempDataErrorKey] = GlobalConstants.UserCannotJoinOrganizationErrorMessage;
             }
 
             this.joinOrganizationRequests.ProceedUserRequest(requestId);

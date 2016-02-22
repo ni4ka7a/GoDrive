@@ -2,6 +2,8 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
+    using Common;
     using Infrastructure.Mapping;
     using Services.Data.Contracts;
     using ViewModels.OrganizationRequests;
@@ -28,7 +30,7 @@
                 .To<CreateOrganizationRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_OrganizationsRequestsPartial", requests);
+            return this.PartialView(GlobalConstants.OrganizationOwnerRoleName, requests);
         }
 
         public ActionResult GetProceedRequest()
@@ -38,13 +40,13 @@
                 .To<CreateOrganizationRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_OrganizationsRequestsPartial", requests);
+            return this.PartialView(GlobalConstants.OrganizationOwnerRoleName, requests);
         }
 
         public ActionResult ProceedRequest(int id)
         {
             this.createOrganizationRequests.ProceedRequest(id);
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction(x => x.Index());
         }
     }
 }

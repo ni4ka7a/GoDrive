@@ -83,7 +83,7 @@
                 {
                     Text = u.UserName,
                     Value = u.Id,
-                    Color = "#f8a398"
+                    Color = "#311b92"
                 });
 
             return this.Json(organizationUsers.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);

@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
     using Common;
     using Data.Models;
     using Filters;
@@ -59,7 +60,7 @@
 
             this.carImages.Delete(id, organizationId);
 
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction(x => x.Index());
         }
 
         [ValidateAntiForgeryToken]
@@ -71,8 +72,8 @@
 
                 if (!this.organizationImages.ValidateFileExtention(extension))
                 {
-                    this.TempData["error"] = $"The Image Should be {GlobalConstants.JpgFileExtension} or {GlobalConstants.PngFileExtension}.";
-                    return this.RedirectToAction("Index");
+                    this.TempData[GlobalConstants.TempDataErrorKey] = GlobalConstants.InvalidImageExtensionErrorMessage;
+                    return this.RedirectToAction(x => x.Index());
                 }
 
                 var currentUserId = this.User.Identity.GetUserId();
@@ -101,7 +102,7 @@
                 this.carImages.Add(image);
             }
 
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction(x => x.Index());
         }
     }
 }

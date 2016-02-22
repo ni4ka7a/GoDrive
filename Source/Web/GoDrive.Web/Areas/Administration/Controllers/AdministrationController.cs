@@ -1,6 +1,5 @@
 ﻿namespace GoDrive.Web.Areas.Administration.Controllers
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.Mvc.Expressions;
@@ -55,7 +54,7 @@
 
             if (owner.OrganizationId != null)
             {
-                // TODO: add error to model state (the user already have an organization)
+                this.ModelState.AddModelError(string.Empty, GlobalConstants.UserAlreadyHaveOrganizationErrorMessage);
                 this.BindUsers();
                 return this.View(model);
             }
