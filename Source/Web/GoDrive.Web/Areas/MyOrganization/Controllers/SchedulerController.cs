@@ -64,8 +64,7 @@
         {
             if (model != null && this.ModelState.IsValid)
             {
-                var driveEvent = this.Mapper.Map<DriveEvent>(model);
-                this.driveEvents.Delete(driveEvent);
+                this.driveEvents.Delete(model.Id);
             }
 
             return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));

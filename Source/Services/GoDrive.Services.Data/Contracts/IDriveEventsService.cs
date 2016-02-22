@@ -11,6 +11,6 @@
 
         void Create(DriveEvent driveEvent);
 
-        void Delete(DriveEvent driveEvent);
+        void Delete(int driveEventId);
     }
 }

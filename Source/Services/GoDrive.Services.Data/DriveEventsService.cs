@@ -21,8 +21,9 @@
             this.driveEvents.Save();
         }
 
-        public void Delete(DriveEvent driveEvent)
+        public void Delete(int driveEventId)
         {
+            var driveEvent = this.driveEvents.GetById(driveEventId);
             if (driveEvent != null)
             {
                 this.driveEvents.Delete(driveEvent);
