@@ -10,12 +10,12 @@
     using ViewModels.JoinedOrganization;
 
     [Authorize]
-    public class JoindedOrganizationController : BaseController
+    public class JoinedOrganizationController : BaseController
     {
         private IDriveEventsService driveEvents;
         private IUsersService users;
 
-        public JoindedOrganizationController(IUsersService users, IDriveEventsService driveEvents)
+        public JoinedOrganizationController(IUsersService users, IDriveEventsService driveEvents)
         {
             this.driveEvents = driveEvents;
             this.users = users;

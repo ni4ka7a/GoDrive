@@ -229,7 +229,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JoindedOrganizationController.cs" />
+    <Compile Include="Controllers\JoinedOrganizationController.cs" />
     <Compile Include="Controllers\JoinOrganizationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -382,9 +382,9 @@
     <Content Include="Views\JoinOrganization\Index.cshtml" />
     <Content Include="Views\Error\CannotJoinOrganization.cshtml" />
     <Content Include="Views\ApplyForOrganization\Index.cshtml" />
-    <Content Include="Views\JoindedOrganization\Index.cshtml" />
-    <Content Include="Views\JoindedOrganization\MyScheduler.cshtml" />
-    <Content Include="Views\JoindedOrganization\MyProgress.cshtml" />
+    <Content Include="Views\JoinedOrganization\Index.cshtml" />
+    <Content Include="Views\JoinedOrganization\MyScheduler.cshtml" />
+    <Content Include="Views\JoinedOrganization\MyProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
