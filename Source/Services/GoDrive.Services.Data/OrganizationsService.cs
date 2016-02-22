@@ -64,5 +64,14 @@
             organization.Students.Add(user);
             this.organizations.Save();
         }
+
+        public IQueryable<Organization> GetTopOrganizations(int topCount)
+        {
+            return this.organizations
+                .All()
+                .OrderBy(x => x.Students.Count())
+                .ThenBy(x => x.Name)
+                .Take(topCount);
+        }
     }
 }

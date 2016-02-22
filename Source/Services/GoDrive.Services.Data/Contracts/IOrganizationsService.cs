@@ -14,5 +14,7 @@
         void Update(Organization organization);
 
         void AddUser(string userId, int organizationId);
+
+        IQueryable<Organization> GetTopOrganizations(int topCount);
     }
 }
