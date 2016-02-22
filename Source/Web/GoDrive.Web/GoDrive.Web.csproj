@@ -384,6 +384,7 @@
     <Content Include="Views\ApplyForOrganization\Index.cshtml" />
     <Content Include="Views\JoindedOrganization\Index.cshtml" />
     <Content Include="Views\JoindedOrganization\MyScheduler.cshtml" />
+    <Content Include="Views\JoindedOrganization\MyProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -49,8 +49,21 @@
                     </p>
                 </div>
                 <div class="card-action">
-                    @(Model.HasPassword ? Html.ActionLink("Change password", "ChangePassword") : Html.ActionLink("Create", "SetPassword"))
-                    @Html.ActionLink("External Logins", "ManageLogins")
+                    @Html.ActionLink("Joined Organization", "Index", "JoinedOrganization")
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="card deep-purple darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">My Schedule</span>
+                    <p>
+                        See Your Driving Schedule
+                    </p>
+                </div>
+                <div class="card-action">
+                    @Html.ActionLink("My Schedule", "MySchedule", "JoinedOrganization")
                 </div>
             </div>
         </div>
