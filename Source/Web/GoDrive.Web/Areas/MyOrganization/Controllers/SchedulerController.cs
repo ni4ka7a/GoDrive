@@ -2,13 +2,16 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Filters;
     using Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Services.Data.Contracts;
     using ViewModels;
     using Web.Controllers;
-
+    using Microsoft.AspNet.Identity;
+    using Data.Models;
+    [AutorizeOrganizationOwnerAttribute]
     public class SchedulerController : BaseController
     {
         private IDriveEventsService driveEvents;
@@ -36,9 +39,11 @@
 
         public virtual JsonResult Create([DataSourceRequest] DataSourceRequest request, DriveEventViewModel model)
         {
-            if (this.ModelState.IsValid)
+            if (model != null && this.ModelState.IsValid)
             {
-                // TODO: Add to db
+                var driveEvent = this.Mapper.Map<DriveEvent>(model);
+
+                this.driveEvents.Create(driveEvent);
             }
 
             return this.Json(new[] { model }.ToDataSourceResult(request,this. ModelState));
@@ -46,8 +51,10 @@
 
         public virtual JsonResult Read_Users([DataSourceRequest] DataSourceRequest request)
         {
+            var currentUserId = this.User.Identity.GetUserId();
+
             var organizationUsers = this.users
-                .GetAll()
+                .GetUsersForOrganization(currentUserId)
                 .Select(u => new
                 {
                     Text = u.UserName,

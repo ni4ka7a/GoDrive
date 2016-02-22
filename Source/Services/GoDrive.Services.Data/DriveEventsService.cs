@@ -17,7 +17,8 @@
 
         public void Create(DriveEvent driveEvent)
         {
-            throw new NotImplementedException();
+            this.driveEvents.Add(driveEvent);
+            this.driveEvents.Save();
         }
 
         public void Delete(DriveEvent driveEvent)

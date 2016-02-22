@@ -5,7 +5,7 @@
     using Infrastructure.Mapping;
     using Kendo.Mvc.UI;
 
-    public class DriveEventViewModel : IMapFrom<DriveEvent>, ISchedulerEvent
+    public class DriveEventViewModel : IMapFrom<DriveEvent>, ISchedulerEvent, IMapTo<DriveEvent>
     {
         public int Id { get; set; }
 
