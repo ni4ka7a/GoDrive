@@ -1,6 +1,11 @@
 ﻿<div class="row center">
     <h2 class="white-text">Manage Users Requests</h2>
 
+    @if (this.TempData["error"] != null)
+    {
+        <div class="red-text">@this.TempData["error"]</div>
+    }
+
     <div class="col m6">
         @Ajax.ActionLink("New Request", "GetUnProceedRequest", null,
            new AjaxOptions

@@ -50,12 +50,26 @@
             this.organizations.Save();
         }
 
-        public void AddUser(string userId, int organizationId)
+        public bool AddUser(string userId, string organizationIdString)
         {
+            int organizationId;
+
+            var organizationExists = int.TryParse(organizationIdString, out  organizationId);
+
+            if (!organizationExists)
+            {
+                return false;
+            }
+
             var user = this.users
                 .All()
                 .Where(x => x.Id == userId)
                 .FirstOrDefault();
+
+            if (user.IsInOrganization == true)
+            {
+                return false;
+            }
 
             user.IsInOrganization = true;
             var organization = this.organizations
@@ -63,6 +77,8 @@
 
             organization.Students.Add(user);
             this.organizations.Save();
+
+            return true;
         }
 
         public IQueryable<Organization> GetTopOrganizations(int topCount)

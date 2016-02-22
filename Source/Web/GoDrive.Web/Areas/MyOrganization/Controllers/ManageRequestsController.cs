@@ -2,6 +2,8 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
+    using Extensions;
     using Filters;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
@@ -65,24 +67,28 @@
             return this.PartialView("_UsersRequestPartial", requests);
         }
 
-        public ActionResult AddToOrganization(string userId, int id)
+        public ActionResult AddToOrganization(string userId, int requestId)
         {
             var organizationOwnerId = this.User.Identity.GetUserId();
-            var organizationId = this.users
-                .GetAll()
-                .Where(x => x.Id == organizationOwnerId)
-                .FirstOrDefault()
-                .OrganizationId;
+            var organizationIdString = this.User.Identity.GetOrganizationId();
 
-            this.organizations.AddUser(userId, id);
-            this.joinOrganizationRequests.ProceedUserRequest(id);
-            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
+            var userAddedSuccessfully = this.organizations.AddUser(userId, organizationIdString);
+
+            if (!userAddedSuccessfully)
+            {
+                this.TempData["error"] = "The user cannot be added becouse he is in another company already.";
+            }
+
+            this.joinOrganizationRequests.ProceedUserRequest(requestId);
+
+            return this.RedirectToAction(x => x.Index());
         }
 
         public ActionResult RejectToOrganization(int id)
         {
             this.joinOrganizationRequests.ProceedUserRequest(id);
-            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
+
+            return this.RedirectToAction(x => x.Index());
         }
     }
 }

@@ -13,7 +13,7 @@
 
         void Update(Organization organization);
 
-        void AddUser(string userId, int organizationId);
+        bool AddUser(string userId, string organizationIdString);
 
         IQueryable<Organization> GetTopOrganizations(int topCount);
     }
