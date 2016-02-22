@@ -46,7 +46,29 @@
                 this.driveEvents.Create(driveEvent);
             }
 
-            return this.Json(new[] { model }.ToDataSourceResult(request,this. ModelState));
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+        }
+
+        public virtual JsonResult Update([DataSourceRequest] DataSourceRequest request, DriveEventViewModel model)
+        {
+            if (model != null && this.ModelState.IsValid)
+            {
+                var driveEvent = this.Mapper.Map<DriveEvent>(model);
+                this.driveEvents.Update(driveEvent);
+            }
+
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+        }
+
+        public virtual JsonResult Destroy([DataSourceRequest] DataSourceRequest request, DriveEventViewModel model)
+        {
+            if (model != null && this.ModelState.IsValid)
+            {
+                var driveEvent = this.Mapper.Map<DriveEvent>(model);
+                this.driveEvents.Delete(driveEvent);
+            }
+
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
         }
 
         public virtual JsonResult Read_Users([DataSourceRequest] DataSourceRequest request)

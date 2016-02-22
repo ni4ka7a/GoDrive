@@ -37,7 +37,19 @@
 
         public void Update(DriveEvent driveEvent)
         {
-            throw new NotImplementedException();
+            var eventToUpdate = this.driveEvents
+                .GetById(driveEvent.Id);
+
+            if (eventToUpdate != null)
+            {
+                eventToUpdate.Title = driveEvent.Title;
+                eventToUpdate.IsAllDay = driveEvent.IsAllDay;
+                eventToUpdate.Start = driveEvent.Start;
+                eventToUpdate.End = driveEvent.End;
+                eventToUpdate.UserID = driveEvent.UserID;
+
+                this.driveEvents.Save();
+            }
         }
     }
 }

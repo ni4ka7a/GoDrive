@@ -64,9 +64,9 @@
             m.Field(f => f.Title).DefaultValue("No title");
         })
         .Read(read => read.Action("Read", "Scheduler"))
-        .Create("Create", "Scheduler")
-        .Destroy("Destroy", "Scheduler")
-        .Update("Update", "Scheduler")
+        .Create(read => read.Action("Create", "Scheduler"))
+        .Destroy(read => read.Action("Destroy", "Scheduler"))
+        .Update(read => read.Action("Update", "Scheduler"))
     )
 )
 
