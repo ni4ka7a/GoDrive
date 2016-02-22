@@ -99,3 +99,7 @@ textarea {
 .car-images .col {
     margin-bottom: 1%;
 }
+
+.create-organization-link a:hover {
+    text-decoration: underline;
+}
