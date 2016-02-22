@@ -9,5 +9,6 @@
         public const string JpegFileExtension = ".jpeg";
         public const string PngFileExtension = ".png";
         public const int OrganizationsPerPage = 6;
+        public const int TopOrganizationsCount = 6;
     }
 }

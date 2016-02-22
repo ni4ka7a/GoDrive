@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Common;
     using Infrastructure.Mapping;
     using Services.Data.Contracts;
     using ViewModels.Home;
@@ -19,7 +20,7 @@
         public ActionResult Index()
         {
             var topOrganizations = this.organizations
-                .GetALl()
+                .GetTopOrganizations(GlobalConstants.TopOrganizationsCount)
                 .To<OrganizationViewModel>()
                 .ToList();
 
