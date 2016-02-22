@@ -422,6 +422,10 @@
       <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
       <Name>GoDrive.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\GoDrive.Extensions\GoDrive.Extensions.csproj">
+      <Project>{aad1612c-e6ef-4d12-b482-bf860af4596d}</Project>
+      <Name>GoDrive.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\GoDrive.Services.Data\GoDrive.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>
       <Name>GoDrive.Services.Data</Name>

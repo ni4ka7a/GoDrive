@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
+@using GoDrive.Extensions
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -17,9 +19,12 @@
                 </li>
             }
 
-            <li>
-                @Html.ActionLink("MyOrganization", "Index", "Home", routeValues: new { area = "MyOrganization"}, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
-            </li>
+            @if (this.User.Identity.GetOrganizationId() != string.Empty)
+            {
+                <li>
+                    @Html.ActionLink("MyOrganization", "Index", "Home", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+                </li>
+            }
 
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
@@ -50,10 +55,10 @@ else
 
         <li>
             @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
-   {
-       id = "loginLink",
-       @class = "aves-effect waves-light btn deep-purple darken-4"
-   })
+       {
+           id = "loginLink",
+           @class = "aves-effect waves-light btn deep-purple darken-4"
+       })
         </li>
     </ul>
     //For mobile
