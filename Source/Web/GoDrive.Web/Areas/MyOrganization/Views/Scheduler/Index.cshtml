@@ -9,7 +9,7 @@
 </div>
 @(Html.Kendo().Scheduler<GoDrive.Web.Areas.MyOrganization.ViewModels.DriveEventViewModel>()
     .Name("scheduler")
-    .Date(new DateTime(2013, 6, 13))
+    .Date(System.DateTime.UtcNow)
     .StartTime(new DateTime(2013, 6, 13, 7, 00, 00))
     .Height(600)
     .Views(views =>
@@ -48,12 +48,6 @@
                         })
                     )
                 );
-        //.BindTo((List<object>)this.ViewData["users"]);
-        //.BindTo(new[] {
-        //    new { Text = "Alex", Value = 1, Color = "#f8a398" } ,
-        //    new { Text = "Bob", Value = 2, Color = "#51a0ed" } ,
-        //    new { Text = "Charlie", Value = 3, Color = "#56ca85" }
-        //});
     })
     .DataSource(d => d
         .Model(m =>
