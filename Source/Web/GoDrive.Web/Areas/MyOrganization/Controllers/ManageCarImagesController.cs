@@ -6,11 +6,12 @@
     using System.Web.Mvc;
     using Common;
     using Data.Models;
+    using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
-    using Web.Controllers;
     using ViewModels;
-    using Infrastructure.Mapping;
+    using Web.Controllers;
+
     public class ManageCarImagesController : BaseController
     {
         // TODO: replace this with carsImagesService

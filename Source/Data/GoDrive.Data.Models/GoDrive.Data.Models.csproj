@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="CarImage.cs" />
     <Compile Include="CreateOrganizationRequest.cs" />
+    <Compile Include="DriveEvent.cs" />
     <Compile Include="JoinOrganizationRequest.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="OrganizationImage.cs" />

@@ -82,6 +82,9 @@
       <HintPath>..\..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\ExternalLibraries\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -214,8 +217,10 @@
     <Compile Include="Areas\MyOrganization\Controllers\ManageInformationController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageRequestsController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageUsersController.cs" />
+    <Compile Include="Areas\MyOrganization\Controllers\SchedulerController.cs" />
     <Compile Include="Areas\MyOrganization\MyOrganizationAreaRegistration.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\CarImageViewModel.cs" />
+    <Compile Include="Areas\MyOrganization\ViewModels\DriveEventViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\ManageUserViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\OrganizationInformationViewModel.cs" />
     <Compile Include="Areas\MyOrganization\ViewModels\UserRequestViewModel.cs" />
@@ -224,6 +229,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JoinedOrganizationController.cs" />
     <Compile Include="Controllers\JoinOrganizationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
@@ -243,6 +249,8 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\ApplyForOrganization\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\JoinedOrganization\DriveEventViewModel.cs" />
+    <Compile Include="ViewModels\JoinedOrganization\JoinedOrganizationViewModel.cs" />
     <Compile Include="ViewModels\JoinOrganization\JoinOrganizationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -263,6 +271,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\KendoUI\kendo.bootstrap.min.css" />
+    <Content Include="Content\KendoUI\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\KendoUI\kendo.common.min.css" />
+    <Content Include="Content\KendoUI\kendo.default.min.css" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="favicon.ico" />
@@ -316,6 +328,7 @@
     <Content Include="Areas\MyOrganization\Views\ManageCarImages\Index.cshtml" />
     <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Scheduler\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -326,6 +339,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.all.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.timezones.min.js" />
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -366,6 +382,9 @@
     <Content Include="Views\JoinOrganization\Index.cshtml" />
     <Content Include="Views\Error\CannotJoinOrganization.cshtml" />
     <Content Include="Views\ApplyForOrganization\Index.cshtml" />
+    <Content Include="Views\JoinedOrganization\Index.cshtml" />
+    <Content Include="Views\JoinedOrganization\MyScheduler.cshtml" />
+    <Content Include="Views\JoinedOrganization\MyProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

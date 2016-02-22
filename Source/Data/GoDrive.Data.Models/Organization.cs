@@ -9,11 +9,13 @@
     {
         private ICollection<User> users;
         private ICollection<CarImage> carsImages;
+        private ICollection<DriveEvent> driveEvents;
 
         public Organization()
         {
             this.users = new HashSet<User>();
             this.carsImages = new HashSet<CarImage>();
+            this.driveEvents = new HashSet<DriveEvent>();
         }
 
         [Required]
@@ -30,6 +32,12 @@
         public int OrganizationImageId { get; set; }
 
         public virtual OrganizationImage OrganizationImage { get; set; }
+
+        public virtual ICollection<DriveEvent> DriveEvents
+        {
+            get { return this.driveEvents; }
+            set { this.driveEvents = value; }
+        }
 
         [ForeignKey("JoinedOrganizationId")]
         public virtual ICollection<User> Students

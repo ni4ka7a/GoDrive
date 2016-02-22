@@ -11,7 +11,7 @@
     {
         private IUsersService users;
 
-        public ManageUsersController(IUsersService users)
+        public ManageUsersController(IUsersService users, IDriveEventsService driveEvents)
         {
             this.users = users;
         }

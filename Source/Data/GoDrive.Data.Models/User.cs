@@ -12,6 +12,13 @@
 
     public class User : IdentityUser, IDeletableEntity, IAuditInfo
     {
+        private ICollection<DriveEvent> driveEvents;
+
+        public User()
+        {
+            this.driveEvents = new HashSet<DriveEvent>();
+        }
+
         [MaxLength(30)]
         public string FirstName { get; set; }
 
@@ -30,6 +37,12 @@
         public int? JoinedOrganizationId { get; set; }
 
         public virtual Organization JoinedOrganization { get; set; }
+
+        public virtual ICollection<DriveEvent> DriveEvents
+        {
+            get { return this.driveEvents; }
+            set { this.driveEvents = value; }
+        }
 
         // IAuditInfo and IDeletableEntity properties
         public bool IsDeleted { get; set; }
