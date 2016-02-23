@@ -55,7 +55,6 @@
                 .As<IIdentifierProvider>()
                 .InstancePerRequest();
 
-            // TODO: Register services to Autofac
             var servicesAssembly = Assembly.GetAssembly(typeof(IOrganizationsService));
             builder.RegisterAssemblyTypes(servicesAssembly).AsImplementedInterfaces();
 
