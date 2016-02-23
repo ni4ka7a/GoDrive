@@ -1,3 +1,52 @@
-﻿
-<p>This page will be for administration organizations</p>
-<p>There will be a Kendo Grid here</p>
+﻿@using Kendo.Mvc.UI
+<div class="center white-text">
+    <h2>Manage Organizations</h2>
+</div>
+
+
+@(Html.Kendo().Grid<GoDrive.Web.Areas.Administration.ViewModels.Organizations.OrganizationGridViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id).HeaderHtmlAttributes(new { title = "id" });
+          columns.Bound(c => c.Name).HeaderHtmlAttributes(new { title = "Name" });
+          columns.Bound(c => c.AboutInfo).HeaderHtmlAttributes(new { title = "Additional Information" });
+          columns.Bound(c => c.OwnerEmail).HeaderHtmlAttributes(new { title = "Owner Email" });
+          columns.Bound(c => c.OwnerUsername).HeaderHtmlAttributes(new { title = "Owner Username" });
+          columns.Bound(c => c.JoinedUsersCount).HeaderHtmlAttributes(new { title = "Joined Users" });
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
+          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
+          columns.Bound(c => c.IsDeleted).HeaderHtmlAttributes(new { title = "Is Deleted" });
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+      })
+      .HtmlAttributes(new { style = "height:550px;" })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model =>
+          {
+              model.Id(p => p.Id);
+              model.Field(x => x.Id).Editable(false);
+              model.Field(x => x.CreatedOn).Editable(false);
+              model.Field(x => x.IsDeleted).Editable(false);
+              model.Field(x => x.JoinedUsersCount).Editable(false);
+              model.Field(x => x.OwnerUsername).Editable(false);
+              model.Field(x => x.OwnerEmail).Editable(false);
+              model.Field(x => x.ModifiedOn).Editable(false);
+          })
+          .Read(read => read.Action("Organizations_Read", "ManageOrganizations"))
+          .Update(update => update.Action("Organizations_Update", "ManageOrganizations"))
+          .Destroy(destroy => destroy.Action("Organizations_Destroy", "ManageOrganizations"))
+      )
+)

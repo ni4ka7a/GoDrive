@@ -5,7 +5,9 @@
 
     public interface IOrganizationsService
     {
-        IQueryable<Organization> GetALl();
+        IQueryable<Organization> GetAll();
+
+        IQueryable<Organization> GetAllWithDeleted();
 
         IQueryable<Organization> GetById(int id);
 
@@ -16,5 +18,7 @@
         bool AddUser(string userId, string organizationIdString);
 
         IQueryable<Organization> GetTopOrganizations(int topCount);
+
+        void Delete(int id);
     }
 }

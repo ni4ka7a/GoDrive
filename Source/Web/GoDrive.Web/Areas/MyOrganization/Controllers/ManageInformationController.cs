@@ -31,7 +31,7 @@
             var currentUserId = this.User.Identity.GetUserId();
 
             var organization = this.organizations
-                .GetALl()
+                .GetAll()
                 .Where(o => o.UserId == currentUserId)
                 .To<OrganizationInformationViewModel>()
                 .FirstOrDefault();

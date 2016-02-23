@@ -22,7 +22,7 @@
             this.organizationImages = organizationImages;
         }
 
-        public IQueryable<Organization> GetALl()
+        public IQueryable<Organization> GetAll()
         {
             return this.organizations.All();
         }
@@ -112,6 +112,24 @@
                 .OrderByDescending(x => x.Students.Count())
                 .ThenBy(x => x.Name)
                 .Take(topCount);
+        }
+
+        public IQueryable<Organization> GetAllWithDeleted()
+        {
+            return this.organizations
+                .AllWithDeleted();
+        }
+
+        public void Delete(int id)
+        {
+            var organizationToDelete = this.organizations
+                .GetById(id);
+
+            if (organizationToDelete != null)
+            {
+                this.organizations.Delete(organizationToDelete);
+                this.organizations.Save();
+            }
         }
     }
 }

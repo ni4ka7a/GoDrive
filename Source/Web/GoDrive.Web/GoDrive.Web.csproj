@@ -212,6 +212,8 @@
     <Compile Include="Areas\Administration\Controllers\ManageUsersController.cs" />
     <Compile Include="Areas\Administration\ViewModels\OrganizationRequests\CreateOrganizationRequestViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Organizations\CreateOganizationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Organizations\OrganizationGridInputMdel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Organizations\OrganizationGridViewModel.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\HomeController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageCarImagesController.cs" />
     <Compile Include="Areas\MyOrganization\Controllers\ManageInformationController.cs" />
