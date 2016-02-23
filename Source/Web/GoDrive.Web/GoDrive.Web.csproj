@@ -330,6 +330,8 @@
     <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Scheduler\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\CreateOrganizationRequestViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\CarImageViewModel.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

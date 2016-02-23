@@ -1,0 +1,6 @@
+﻿@model GoDrive.Web.Areas.MyOrganization.ViewModels.CarImageViewModel
+
+<div class="col m6">
+    <img class="materialboxed" data-caption="car" width="350" height="230" src="@Model.Url">
+    @Html.ActionLink("Delete", "DeleteCarImage", "ManageCarImages", routeValues: new { id = Model.Id, area = "MyOrganization" }, htmlAttributes: new { title = "Manage", @class = "waves-effect waves-light btn  red darken-4" })
+</div>
