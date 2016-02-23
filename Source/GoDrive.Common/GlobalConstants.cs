@@ -19,6 +19,6 @@
         public const string UserAlreadyHaveOrganizationErrorMessage = "The User already have an Organization";
         public const string UserRequestsPratialName = "_UsersRequestPartial";
         public const int OrganizationsPerPage = 6;
-        public const int TopOrganizationsCount = 6;
+        public const int TopOrganizationsCount = 3;
     }
 }
