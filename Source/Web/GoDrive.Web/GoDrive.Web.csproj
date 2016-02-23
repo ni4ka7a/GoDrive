@@ -400,10 +400,10 @@
     <Content Include="Views\Shared\DisplayTemplates\OrganizationViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\OrganizationDetailsViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CreateOrganizationRequestViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\JoinOrganizationViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
