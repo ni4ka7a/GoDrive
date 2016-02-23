@@ -1,0 +1,36 @@
+﻿@model GoDrive.Web.ViewModels.Organizations.OrganizationDetailsViewModel
+
+<div class="row">
+    <div class="col m6">
+        <img class="materialboxed" width="400" src="@Model.OrganizationImageUrl">
+    </div>
+
+    <div class="col m6">
+        <h2>@Model.Name</h2>
+        <p>@Model.AboutInfo</p>
+        @Html.ActionLink("Join Now", "Index", "JoinOrganization", routeValues: new { id = Model.Id, area = string.Empty }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+    </div>
+</div>
+
+<hr />
+
+<div class="row white-text">
+    <div class="col m6">
+        <strong>Over than @Model.UsersCount Students</strong>
+    </div>
+
+    <div class="col m6">
+        <strong>In The WebSite since @Model.CreatedOn</strong>
+    </div>
+</div>
+
+<div class="row blue darken-1">
+    <h4 class="center">Our Cars</h4>
+
+    <div class="carousel">
+        @foreach (var carImage in Model.CarImages)
+        {
+            <a class="carousel-item" href="#1"><img src="@carImage"></a>
+        }
+    </div>
+</div>
