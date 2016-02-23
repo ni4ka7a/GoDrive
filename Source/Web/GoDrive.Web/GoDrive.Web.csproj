@@ -272,10 +272,6 @@
     <Compile Include="ViewModels\Organizations\OrganizationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
     <Content Include="Content\Images\defaultOrganizationImage.png" />
     <Content Include="Content\KendoUI\kendo.bootstrap.min.css" />
@@ -289,16 +285,14 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\defaultOrganizationImage.png" />
+    <Content Include="Scripts\app\imageGalleryInitialize.js" />
+    <Content Include="Scripts\app\progressBarInitialize.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="font\roboto\Roboto-Bold.eot" />
@@ -336,6 +330,11 @@
     <Content Include="Areas\Administration\Views\ManageRequests\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_OrganizationsRequestsPartial.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Scheduler\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\CreateOrganizationRequestViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\CarImageViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\EditorTemplates\OrganizationInformationViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\UserRequestViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\ManageUserViewModel.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -383,7 +382,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_NavigationPartial.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Organizations\Index.cshtml" />
     <Content Include="Views\Organizations\Details.cshtml" />
@@ -398,10 +397,14 @@
     <Content Include="Views\ApplyForOrganization\ApplicationSuccess.cshtml" />
     <Content Include="Views\JoinOrganization\ApplicationSuccess.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrganizationViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrganizationDetailsViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CreateOrganizationRequestViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\JoinOrganizationViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MyProgressViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

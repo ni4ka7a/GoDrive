@@ -19,21 +19,7 @@
 
         @foreach (var request in Model)
         {
-            <tr>
-                <td>@request.Username</td>
-                <td>@request.FirstName</td>
-                <td>@request.LastName</td>
-                <td>@request.Age</td>
-                <td>@request.AdditionalInformation</td>
-                <td>@request.CreatedOn</td>
-                <td>@request.IsProceed</td>
-                <td>
-                    @Html.ActionLink("Add", "AddToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, requestId = request.Id, area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
-                </td>
-                <td>
-                    @Html.ActionLink("Decline", "RejectToOrganization", "ManageRequests", routeValues: new { userId = request.UserId, id = request.Id, area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
-                </td>
-            </tr>
+            @Html.DisplayFor(x => request)
         }
 
     </tbody>

@@ -24,11 +24,13 @@
                       "~/Scripts/KendoUI/kendo.all.min.js",
                       "~/Scripts/KendoUI/kendo.timezones.min.js",
                       "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/imageGallery").Include("~/Scripts/app/imageGalleryInitialize.js"));
+            bundles.Add(new ScriptBundle("~/bundles/progressBarInitialize").Include("~/Scripts/app/progressBarInitialize.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)
         {
-            // bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/materialize.min.css", "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
