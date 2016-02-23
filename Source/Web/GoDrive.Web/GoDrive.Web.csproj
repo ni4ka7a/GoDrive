@@ -401,6 +401,7 @@
     <Content Include="Views\Shared\DisplayTemplates\OrganizationDetailsViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CreateOrganizationRequestViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\JoinOrganizationViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MyProgressViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

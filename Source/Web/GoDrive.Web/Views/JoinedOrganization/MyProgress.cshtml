@@ -3,19 +3,7 @@
 <h2 class="white-text center">My Current Progress</h2>
 
 <div class="row white-text">
-    <div class="col s6">
-        <div id="progress-container"></div>
-    </div>
-
-    <div class="col s6">
-        <strong>Drived Hours:</strong>
-        <i>@Model.DrivedHours</i>
-    </div>
-
-    <div class="col s6">
-        <strong>Hours Left:</strong>
-        <i>@Model.HoursLeft</i>
-    </div>
+    @Html.DisplayFor(x => Model)
 
 </div>
 
