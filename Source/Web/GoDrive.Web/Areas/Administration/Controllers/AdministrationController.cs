@@ -47,23 +47,33 @@
                 return this.View(model);
             }
 
-            var owner = this.users
-                .GetAll()
-                .Where(u => u.Id == model.UserId)
-                .FirstOrDefault();
+            var organizationToCreate = this.Mapper.Map<Organization>(model);
+            var isCreated = this.organizations.Create(organizationToCreate);
 
-            if (owner.OrganizationId != null)
+            if (!isCreated)
             {
                 this.ModelState.AddModelError(string.Empty, GlobalConstants.UserAlreadyHaveOrganizationErrorMessage);
                 this.BindUsers();
                 return this.View(model);
             }
 
-            var defaultImage = this.organizationImages.GetDefaultImage();
-            var organizationToCreate = this.Mapper.Map<Organization>(model);
-            organizationToCreate.OrganizationImage = defaultImage;
+            //var owner = this.users
+            //    .GetAll()
+            //    .Where(u => u.Id == model.UserId)
+            //    .FirstOrDefault();
 
-            this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
+            //if (owner.OrganizationId != null)
+            //{
+            //    this.ModelState.AddModelError(string.Empty, GlobalConstants.UserAlreadyHaveOrganizationErrorMessage);
+            //    this.BindUsers();
+            //    return this.View(model);
+            //}
+
+            //var defaultImage = this.organizationImages.GetDefaultImage();
+            //var organizationToCreate = this.Mapper.Map<Organization>(model);
+            //organizationToCreate.OrganizationImage = defaultImage;
+
+            //this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
 
             return this.RedirectToAction<AdministrationController>(c => c.Index());
         }

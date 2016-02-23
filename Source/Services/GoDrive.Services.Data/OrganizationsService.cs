@@ -10,11 +10,16 @@
     {
         private IDbRepository<Organization> organizations;
         private IDbRepository<User> users;
+        private IOrganizationImagesService organizationImages;
 
-        public OrganizationsService(IDbRepository<Organization> organizations, IDbRepository<User> users)
+        public OrganizationsService(
+            IDbRepository<Organization> organizations,
+            IDbRepository<User> users,
+            IOrganizationImagesService organizationImages)
         {
             this.organizations = organizations;
             this.users = users;
+            this.organizationImages = organizationImages;
         }
 
         public IQueryable<Organization> GetALl()
@@ -29,10 +34,29 @@
                 .Where(o => o.Id == id);
         }
 
-        public void Create(Organization organization)
+        public bool Create(Organization organization)
         {
+            var owner = this.users
+                .All()
+                .Where(x => x.Id == organization.UserId)
+                .FirstOrDefault();
+
+            if (owner == null)
+            {
+                return false;
+            }
+
+            if (owner.OrganizationId != null)
+            {
+                return false;
+            }
+
+            organization.OrganizationImage = this.organizationImages.GetDefaultImage();
+
             this.organizations.Add(organization);
             this.organizations.Save();
+
+            return true;
         }
 
         public void Update(Organization organization)

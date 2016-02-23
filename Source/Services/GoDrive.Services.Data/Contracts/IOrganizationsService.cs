@@ -9,7 +9,7 @@
 
         IQueryable<Organization> GetById(int id);
 
-        void Create(Organization organization);
+        bool Create(Organization organization);
 
         void Update(Organization organization);
 
