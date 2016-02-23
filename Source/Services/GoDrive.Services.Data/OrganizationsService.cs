@@ -53,8 +53,8 @@
 
             organization.OrganizationImage = this.organizationImages.GetDefaultImage();
 
-            this.organizations.Add(organization);
-            this.organizations.Save();
+            owner.Organization = organization;
+            this.users.Save();
 
             return true;
         }
