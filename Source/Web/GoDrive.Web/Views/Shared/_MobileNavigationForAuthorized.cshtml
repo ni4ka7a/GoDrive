@@ -21,6 +21,10 @@
     }
 
     <li>
+        @Html.ActionLink("MySchedule", "MyScheduler", "JoinedOrganization", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    <li>
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4 white-text" })
     </li>
 
