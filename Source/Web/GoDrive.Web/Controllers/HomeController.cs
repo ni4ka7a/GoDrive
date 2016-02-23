@@ -34,5 +34,10 @@
 
             return this.View(model);
         }
+
+        public ActionResult About()
+        {
+            return this.View();
+        }
     }
 }
