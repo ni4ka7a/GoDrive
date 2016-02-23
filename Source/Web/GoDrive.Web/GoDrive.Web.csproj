@@ -390,6 +390,7 @@
     <Content Include="Views\ApplyForOrganization\ApplicationSuccess.cshtml" />
     <Content Include="Views\JoinOrganization\ApplicationSuccess.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrganizationViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
