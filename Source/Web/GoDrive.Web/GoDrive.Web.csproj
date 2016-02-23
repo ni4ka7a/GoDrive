@@ -391,6 +391,7 @@
     <Content Include="Views\JoinedOrganization\MyProgress.cshtml" />
     <Content Include="Views\Shared\_MobileNavigationForAuthorized.cshtml" />
     <Content Include="Views\Shared\_MobileNavigationForUnAuthorized.cshtml" />
+    <Content Include="Views\ApplyForOrganization\ApplicationSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

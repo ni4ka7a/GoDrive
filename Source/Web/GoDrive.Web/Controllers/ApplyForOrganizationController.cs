@@ -1,6 +1,7 @@
 ﻿namespace GoDrive.Web.Controllers
 {
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
     using Data.Models;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
@@ -31,10 +32,15 @@
                 request.UserId = userId;
 
                 this.createOrganizationRequests.CreateRequest(request);
-                return this.RedirectToAction("Index", "Home");
+                return this.RedirectToAction(x => x.ApplicationSuccess());
             }
 
             return this.View("Index", model);
+        }
+
+        public ActionResult ApplicationSuccess()
+        {
+            return this.View();
         }
     }
 }
