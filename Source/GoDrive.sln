@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoDrive.Web.Controllers.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoDrive.Common", "GoDrive.Common\GoDrive.Common.csproj", "{701F322F-AA01-4DDC-90B6-6935981C1E73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoDrive.Extensions", "GoDrive.Extensions\GoDrive.Extensions.csproj", "{AAD1612C-E6EF-4D12-B482-BF860AF4596D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{701F322F-AA01-4DDC-90B6-6935981C1E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD1612C-E6EF-4D12-B482-BF860AF4596D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD1612C-E6EF-4D12-B482-BF860AF4596D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD1612C-E6EF-4D12-B482-BF860AF4596D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD1612C-E6EF-4D12-B482-BF860AF4596D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

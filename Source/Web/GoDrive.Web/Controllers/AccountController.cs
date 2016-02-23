@@ -1,17 +1,16 @@
 ﻿namespace GoDrive.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-
+    using GoDrive.Data.Models;
+    using GoDrive.Web.ViewModels.Account;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using GoDrive.Data.Models;
-    using GoDrive.Web.ViewModels.Account;
-    using System;
     [Authorize]
     public class AccountController : BaseController
     {
@@ -84,7 +83,7 @@
             var result =
                 await
                 this.SignInManager.PasswordSignInAsync(
-                    model.Email,
+                    model.Username,
                     model.Password,
                     model.RememberMe,
                     shouldLockout: false);
@@ -170,8 +169,15 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
-                user.CreatedOn = DateTime.Now;
+                var user = new User {
+                    UserName = model.Username,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Age = model.Age,
+                    CreatedOn = DateTime.Now
+                };
+
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

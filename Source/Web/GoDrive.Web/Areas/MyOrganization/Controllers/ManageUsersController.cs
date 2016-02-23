@@ -2,11 +2,13 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Filters;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
     using ViewModels;
 
+    [AutorizeOrganizationOwnerAttribute]
     public class ManageUsersController : Controller
     {
         private IUsersService users;

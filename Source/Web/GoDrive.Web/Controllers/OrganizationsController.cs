@@ -25,7 +25,7 @@
             }
 
             var allOrganizationsCount = this.organizations.GetALl().Count();
-            var totalPages = (int)Math.Ceiling(allOrganizationsCount / (decimal) GlobalConstants.OrganizationsPerPage);
+            var totalPages = (int)Math.Ceiling(allOrganizationsCount / (decimal)GlobalConstants.OrganizationsPerPage);
             var organizationsToSkip = (page - 1) * GlobalConstants.OrganizationsPerPage;
 
             var organizations = this.organizations

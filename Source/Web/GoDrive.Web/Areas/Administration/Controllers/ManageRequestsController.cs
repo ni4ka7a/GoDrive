@@ -2,23 +2,60 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
+    using Common;
+    using Data.Models;
     using Infrastructure.Mapping;
     using Services.Data.Contracts;
     using ViewModels.OrganizationRequests;
     using Web.Controllers;
-    using ViewModels.Organizations;
+
     public class ManageRequestsController : BaseController
     {
         private ICreateOrganizationRequestsService createOrganizationRequests;
+        private IOrganizationsService organizations;
 
-        public ManageRequestsController(ICreateOrganizationRequestsService createOrganizationRequests)
+        public ManageRequestsController(
+            ICreateOrganizationRequestsService createOrganizationRequests,
+            IOrganizationsService organizations)
         {
             this.createOrganizationRequests = createOrganizationRequests;
+            this.organizations = organizations;
         }
 
         public ActionResult Index()
         {
             return this.View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateOrganization(CreateOrganizationRequestViewModel model)
+        {
+            if (model == null || !this.ModelState.IsValid)
+            {
+                this.TempData[GlobalConstants.TempDataErrorKey] = GlobalConstants.InvalidOrganizationRequestErrorMessage;
+                return this.RedirectToAction(x => x.Index());
+            }
+
+            var organizationToCreate = new Organization()
+            {
+                Name = model.OrganizationName,
+                AboutInfo = model.OrganizationDescription,
+                UserId = model.UserId
+            };
+
+            var isCreated = this.organizations.Create(organizationToCreate);
+
+            if (!isCreated)
+            {
+                this.TempData[GlobalConstants.TempDataErrorKey] = GlobalConstants.InvalidOrganizationRequestErrorMessage;
+                return this.RedirectToAction(x => x.Index());
+            }
+
+            this.TempData[GlobalConstants.TempDataSuccessKey] = GlobalConstants.CreatedOrganizationSuccessMessage;
+
+            this.createOrganizationRequests.ProceedRequest(model.Id);
+            return this.RedirectToAction(x => x.Index());
         }
 
         public ActionResult GetUnProceedRequest()
@@ -28,7 +65,7 @@
                 .To<CreateOrganizationRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_OrganizationsRequestsPartial", requests);
+            return this.PartialView(GlobalConstants.OrganizationRequestsPratialViewName, requests);
         }
 
         public ActionResult GetProceedRequest()
@@ -38,13 +75,13 @@
                 .To<CreateOrganizationRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_OrganizationsRequestsPartial", requests);
+            return this.PartialView(GlobalConstants.OrganizationRequestsPratialViewName, requests);
         }
 
         public ActionResult ProceedRequest(int id)
         {
             this.createOrganizationRequests.ProceedRequest(id);
-            return this.RedirectToAction("Index");
+            return this.RedirectToAction(x => x.Index());
         }
     }
 }

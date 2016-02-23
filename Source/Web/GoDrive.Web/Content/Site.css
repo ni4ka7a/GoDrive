@@ -99,3 +99,17 @@ textarea {
 .car-images .col {
     margin-bottom: 1%;
 }
+
+.create-organization-link a:hover {
+    text-decoration: underline;
+}
+
+#progress-container {
+    width: 100px;
+    height: 100px;
+}
+
+#progress-container > svg {
+    width: 100%;
+    display: block;
+}

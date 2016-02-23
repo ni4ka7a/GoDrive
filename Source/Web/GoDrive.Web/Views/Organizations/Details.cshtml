@@ -28,17 +28,22 @@
     <h4 class="center">Our Cars</h4>
 
     <div class="carousel">
-        <a class="carousel-item" href="#1"><img src="http://car-pictures.cars.com/images/?IMG=cac10foc051c01401.png&WIDTH=624&AUTOTRIM=1&SPECIAL=&ACT=F"></a>
-        <a class="carousel-item" href="#2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR4e1Bptu1sPdq_eYliY7JkeroHjhXv3fPHf3l33UZFijQ3nN7tw"></a>
-        <a class="carousel-item" href="#3"><img src="http://img.autobytel.com/car-reviews/autobytel/11694-good-looking-sports-cars/2016-Ford-Mustang-GT-burnout-red-tire-smoke.jpg"></a>
+        @foreach (var carImage in Model.CarImages)
+        {
+            <a class="carousel-item" href="#1"><img src="@carImage"></a>
+        }
     </div>
 </div>
 
-@section Scripts {
-    <script>
+@if (Model.CarImages.Count > 0)
+{
+    @section Scripts {
+        <script>
         $(document).ready(function () {
             $('.materialboxed').materialbox();
             $('.carousel').carousel();
         });
-    </script>
+        </script>
+    }
 }
+

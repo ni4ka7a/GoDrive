@@ -1,15 +1,12 @@
 ﻿namespace GoDrive.Web
 {
     using System;
-
+    using GoDrive.Data;
+    using GoDrive.Data.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
-
-    using GoDrive.Data;
-    using GoDrive.Data.Models;
-
     using Owin;
 
     public partial class Startup

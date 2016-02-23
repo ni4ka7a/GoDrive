@@ -9,10 +9,12 @@
 
         IQueryable<Organization> GetById(int id);
 
-        void Create(Organization organization);
+        bool Create(Organization organization);
 
         void Update(Organization organization);
 
-        void AddUser(string userId, int organizationId);
+        bool AddUser(string userId, string organizationIdString);
+
+        IQueryable<Organization> GetTopOrganizations(int topCount);
     }
 }

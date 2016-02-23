@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class MyOrganizationAreaRegistration : AreaRegistration 
+    public class MyOrganizationAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
@@ -18,8 +18,7 @@
                 "MyOrganization_default",
                 "MyOrganization/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "GoDrive.Web.Areas.MyOrganization.Controllers" }
-            );
+                namespaces: new[] { "GoDrive.Web.Areas.MyOrganization.Controllers" });
         }
     }
 }

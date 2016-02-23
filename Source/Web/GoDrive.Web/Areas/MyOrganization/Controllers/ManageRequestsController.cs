@@ -2,12 +2,17 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Mvc.Expressions;
+    using Common;
+    using Extensions;
+    using Filters;
     using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Services.Data.Contracts;
     using ViewModels;
     using Web.Controllers;
 
+    [AutorizeOrganizationOwnerAttribute]
     public class ManageRequestsController : BaseController
     {
         private IJoinOrganizationService joinOrganizationRequests;
@@ -43,7 +48,7 @@
                 .To<UserRequestViewModel>()
                 .ToList();
 
-            return this.PartialView("_UsersRequestPartial", requests);
+            return this.PartialView(GlobalConstants.UserRequestsPratialName, requests);
         }
 
         public ActionResult GetProceedRequest()
@@ -63,24 +68,28 @@
             return this.PartialView("_UsersRequestPartial", requests);
         }
 
-        public ActionResult AddToOrganization(string userId, int id)
+        public ActionResult AddToOrganization(string userId, int requestId)
         {
             var organizationOwnerId = this.User.Identity.GetUserId();
-            var organizationId = this.users
-                .GetAll()
-                .Where(x => x.Id == organizationOwnerId)
-                .FirstOrDefault()
-                .OrganizationId;
+            var organizationIdString = this.User.Identity.GetOrganizationId();
 
-            this.organizations.AddUser(userId, id);
-            this.joinOrganizationRequests.ProceedUserRequest(id);
-            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
+            var userAddedSuccessfully = this.organizations.AddUser(userId, organizationIdString);
+
+            if (!userAddedSuccessfully)
+            {
+                this.TempData[GlobalConstants.TempDataErrorKey] = GlobalConstants.UserCannotJoinOrganizationErrorMessage;
+            }
+
+            this.joinOrganizationRequests.ProceedUserRequest(requestId);
+
+            return this.RedirectToAction(x => x.Index());
         }
 
         public ActionResult RejectToOrganization(int id)
         {
             this.joinOrganizationRequests.ProceedUserRequest(id);
-            return this.RedirectToAction("Index", "Home", new { area = "MyOrganization" });
+
+            return this.RedirectToAction(x => x.Index());
         }
     }
 }

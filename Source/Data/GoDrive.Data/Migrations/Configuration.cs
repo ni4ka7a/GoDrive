@@ -36,7 +36,7 @@
                 // Create admin user
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName, CreatedOn = DateTime.Now};
+                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName, CreatedOn = DateTime.Now };
                 userManager.Create(user, AdministratorPassword);
 
                 // Assign user to admin role
@@ -53,8 +53,8 @@
             {
                 context.OrganizationImages.Add(new OrganizationImage()
                 {
-                    Name = "DefaultImage",
-                    Url = "/Images/defaultOrganizationImage.png"
+                    Name = GlobalConstants.DefaultImageName,
+                    Url = GlobalConstants.DefaultImagePath
                 });
 
                 context.SaveChanges();

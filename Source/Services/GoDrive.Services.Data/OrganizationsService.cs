@@ -10,11 +10,16 @@
     {
         private IDbRepository<Organization> organizations;
         private IDbRepository<User> users;
+        private IOrganizationImagesService organizationImages;
 
-        public OrganizationsService(IDbRepository<Organization> organizations, IDbRepository<User> users)
+        public OrganizationsService(
+            IDbRepository<Organization> organizations,
+            IDbRepository<User> users,
+            IOrganizationImagesService organizationImages)
         {
             this.organizations = organizations;
             this.users = users;
+            this.organizationImages = organizationImages;
         }
 
         public IQueryable<Organization> GetALl()
@@ -29,10 +34,29 @@
                 .Where(o => o.Id == id);
         }
 
-        public void Create(Organization organization)
+        public bool Create(Organization organization)
         {
-            this.organizations.Add(organization);
-            this.organizations.Save();
+            var owner = this.users
+                .All()
+                .Where(x => x.Id == organization.UserId)
+                .FirstOrDefault();
+
+            if (owner == null)
+            {
+                return false;
+            }
+
+            if (owner.OrganizationId != null)
+            {
+                return false;
+            }
+
+            organization.OrganizationImage = this.organizationImages.GetDefaultImage();
+
+            owner.Organization = organization;
+            this.users.Save();
+
+            return true;
         }
 
         public void Update(Organization organization)
@@ -50,12 +74,26 @@
             this.organizations.Save();
         }
 
-        public void AddUser(string userId, int organizationId)
+        public bool AddUser(string userId, string organizationIdString)
         {
+            int organizationId;
+
+            var organizationExists = int.TryParse(organizationIdString, out organizationId);
+
+            if (!organizationExists)
+            {
+                return false;
+            }
+
             var user = this.users
                 .All()
                 .Where(x => x.Id == userId)
                 .FirstOrDefault();
+
+            if (user.IsInOrganization == true)
+            {
+                return false;
+            }
 
             user.IsInOrganization = true;
             var organization = this.organizations
@@ -63,6 +101,17 @@
 
             organization.Students.Add(user);
             this.organizations.Save();
+
+            return true;
+        }
+
+        public IQueryable<Organization> GetTopOrganizations(int topCount)
+        {
+            return this.organizations
+                .All()
+                .OrderByDescending(x => x.Students.Count())
+                .ThenBy(x => x.Name)
+                .Take(topCount);
         }
     }
 }

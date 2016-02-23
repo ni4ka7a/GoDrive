@@ -251,6 +251,7 @@
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\JoinedOrganization\DriveEventViewModel.cs" />
     <Compile Include="ViewModels\JoinedOrganization\JoinedOrganizationViewModel.cs" />
+    <Compile Include="ViewModels\JoinedOrganization\MyProgressViewModel.cs" />
     <Compile Include="ViewModels\JoinOrganization\JoinOrganizationViewModel.cs" />
     <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\defaultOrganizationImage.png" />
     <Content Include="Content\KendoUI\kendo.bootstrap.min.css" />
     <Content Include="Content\KendoUI\kendo.common-bootstrap.min.css" />
     <Content Include="Content\KendoUI\kendo.common.min.css" />
@@ -343,6 +346,7 @@
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\KendoUI\kendo.timezones.min.js" />
     <Content Include="Scripts\materialize.min.js" />
+    <Content Include="Scripts\progressbar.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -385,6 +389,8 @@
     <Content Include="Views\JoinedOrganization\Index.cshtml" />
     <Content Include="Views\JoinedOrganization\MyScheduler.cshtml" />
     <Content Include="Views\JoinedOrganization\MyProgress.cshtml" />
+    <Content Include="Views\Shared\_MobileNavigationForAuthorized.cshtml" />
+    <Content Include="Views\Shared\_MobileNavigationForUnAuthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -419,6 +425,10 @@
     <ProjectReference Include="..\..\GoDrive.Common\GoDrive.Common.csproj">
       <Project>{701f322f-aa01-4ddc-90b6-6935981c1e73}</Project>
       <Name>GoDrive.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GoDrive.Extensions\GoDrive.Extensions.csproj">
+      <Project>{aad1612c-e6ef-4d12-b482-bf860af4596d}</Project>
+      <Name>GoDrive.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\GoDrive.Services.Data\GoDrive.Services.Data.csproj">
       <Project>{90fe4c4d-122a-406d-8a40-79c561fb8184}</Project>

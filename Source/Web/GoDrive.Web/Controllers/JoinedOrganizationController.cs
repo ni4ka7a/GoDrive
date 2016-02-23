@@ -21,7 +21,6 @@
             this.users = users;
         }
 
-
         public ActionResult Index()
         {
             var currentUserId = this.User.Identity.GetUserId();
@@ -63,7 +62,34 @@
 
         public ActionResult MyProgress()
         {
-            return this.View();
+            var userId = this.User.Identity.GetUserId();
+            var driveEvents = this.driveEvents
+                .GetEventsByUser(userId)
+                .ToList();
+
+            double totalHours = 0;
+
+            foreach (var driveEvent in driveEvents)
+            {
+                totalHours += (driveEvent.End - driveEvent.Start).TotalHours;
+            }
+
+            double percentage = 0;
+
+            if (totalHours != 0)
+            {
+                percentage = totalHours / 32;
+            }
+
+
+            var model = new MyProgressViewModel()
+            {
+                CurrentProgress = percentage,
+                DrivedHours = (int)totalHours,
+                HoursLeft = 32 - (int)totalHours
+            };
+
+            return this.View(model);
         }
     }
 }
