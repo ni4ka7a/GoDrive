@@ -7,6 +7,12 @@
     {
         IQueryable<User> GetAll();
 
+        IQueryable<User> GetAllWithDeleted();
+
+        void Update(User user);
+
+        void Delete(string id);
+
         void AddOrganization(string userId, Organization organization);
 
         IQueryable<User> GetUsersForOrganization(string userId);

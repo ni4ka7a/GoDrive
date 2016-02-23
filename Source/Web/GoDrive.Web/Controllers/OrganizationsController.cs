@@ -24,12 +24,12 @@
                 page = 1;
             }
 
-            var allOrganizationsCount = this.organizations.GetALl().Count();
+            var allOrganizationsCount = this.organizations.GetAll().Count();
             var totalPages = (int)Math.Ceiling(allOrganizationsCount / (decimal)GlobalConstants.OrganizationsPerPage);
             var organizationsToSkip = (page - 1) * GlobalConstants.OrganizationsPerPage;
 
             var organizations = this.organizations
-                .GetALl()
+                .GetAll()
                 .OrderByDescending(o => o.CreatedOn)
                 .Skip(organizationsToSkip)
                 .Take(GlobalConstants.OrganizationsPerPage)
@@ -49,7 +49,7 @@
         public ActionResult Details(int id = 0)
         {
             var model = this.organizations
-                .GetALl()
+                .GetAll()
                 .Where(x => x.Id == id)
                 .To<OrganizationDetailsViewModel>()
                 .FirstOrDefault();
