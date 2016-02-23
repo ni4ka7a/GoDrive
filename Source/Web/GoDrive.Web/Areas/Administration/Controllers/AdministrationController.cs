@@ -57,24 +57,6 @@
                 return this.View(model);
             }
 
-            //var owner = this.users
-            //    .GetAll()
-            //    .Where(u => u.Id == model.UserId)
-            //    .FirstOrDefault();
-
-            //if (owner.OrganizationId != null)
-            //{
-            //    this.ModelState.AddModelError(string.Empty, GlobalConstants.UserAlreadyHaveOrganizationErrorMessage);
-            //    this.BindUsers();
-            //    return this.View(model);
-            //}
-
-            //var defaultImage = this.organizationImages.GetDefaultImage();
-            //var organizationToCreate = this.Mapper.Map<Organization>(model);
-            //organizationToCreate.OrganizationImage = defaultImage;
-
-            //this.users.AddOrganization(organizationToCreate.UserId, organizationToCreate);
-
             return this.RedirectToAction<AdministrationController>(c => c.Index());
         }
 
