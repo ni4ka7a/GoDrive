@@ -5,12 +5,7 @@
 @if (Model.CarImages.Count > 0)
 {
     @section Scripts {
-        <script>
-        $(document).ready(function () {
-            $('.materialboxed').materialbox();
-            $('.carousel').carousel();
-        });
-        </script>
+       @Scripts.Render("~/bundles/imageGallery")
     }
 }
 

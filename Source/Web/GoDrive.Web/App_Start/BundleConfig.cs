@@ -24,6 +24,9 @@
                       "~/Scripts/KendoUI/kendo.all.min.js",
                       "~/Scripts/KendoUI/kendo.timezones.min.js",
                       "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/imageGallery").Include("~/Scripts/app/imageGalleryInitialize.js"));
+            bundles.Add(new ScriptBundle("~/bundles/progressBarInitialize").Include("~/Scripts/app/progressBarInitialize.js"));
         }
 
         private static void RegisterStyles(BundleCollection bundles)

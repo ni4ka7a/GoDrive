@@ -285,6 +285,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\defaultOrganizationImage.png" />
+    <Content Include="Scripts\app\imageGalleryInitialize.js" />
+    <Content Include="Scripts\app\progressBarInitialize.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

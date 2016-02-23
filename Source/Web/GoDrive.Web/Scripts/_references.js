@@ -1,4 +1,6 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="app/imagegalleryinitialize.js" />
+/// <reference path="app/progressbarinitialize.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="jquery.unobtrusive-ajax.min.js" />
 /// <reference path="jquery.validate.min.js" />
