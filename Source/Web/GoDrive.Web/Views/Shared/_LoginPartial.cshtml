@@ -12,6 +12,10 @@
                 @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
             </li>
 
+            <li>
+                @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
             @if (User.IsInRole("Administrator"))
             {
                 <li>
@@ -47,6 +51,10 @@ else
     <ul class="right hide-on-med-and-down">
         <li>
             @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+        </li>
+
+        <li>
+            @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
         </li>
 
         <li>

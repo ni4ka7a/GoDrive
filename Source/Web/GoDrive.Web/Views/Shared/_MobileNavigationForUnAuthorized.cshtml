@@ -4,6 +4,10 @@
     </li>
 
     <li>
+        @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    <li>
         @Html.ActionLink("Register", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
        {
            id = "registerLink",
