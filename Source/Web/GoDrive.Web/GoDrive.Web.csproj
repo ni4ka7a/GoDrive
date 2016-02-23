@@ -334,6 +334,7 @@
     <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\CarImageViewModel.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Shared\EditorTemplates\OrganizationInformationViewModel.cshtml" />
     <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\UserRequestViewModel.cshtml" />
+    <Content Include="Areas\MyOrganization\Views\Shared\DisplayTemplates\ManageUserViewModel.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
