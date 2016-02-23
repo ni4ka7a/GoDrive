@@ -1,0 +1,44 @@
+﻿@model GoDrive.Web.Areas.MyOrganization.ViewModels.OrganizationInformationViewModel
+
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        @Html.TextBoxFor(m => m.Name, new { })
+        @Html.LabelFor(m => m.Name, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "red-text" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        @Html.EditorFor(m => m.AboutInfo, new { })
+        @Html.LabelFor(m => m.AboutInfo, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.AboutInfo, "", new { @class = "red-text" })
+        </div>
+    </div>
+</div>
+
+@Html.HiddenFor(x => x.Id)
+
+<div class="file-field input-field">
+    <div class="btn  deep-purple darken-4">
+        <span>Browse Image</span>
+        <input type="file" name="file">
+    </div>
+    <div class="file-path-wrapper">
+        <input type="text" class="file-path validate" placeholder="Change The Organization Image">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button class="btn waves-effect waves-light deep-purple darken-4" type="submit" name="action">
+            Update
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</div>
