@@ -32,6 +32,7 @@
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -83,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrganizationsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +115,10 @@
     <ProjectReference Include="..\..\Web\GoDrive.Web\GoDrive.Web.csproj">
       <Project>{67cc40ff-4933-4f83-810e-357e6bc8b973}</Project>
       <Name>GoDrive.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoDrive.Common.Tests\GoDrive.Common.Tests.csproj">
+      <Project>{ed8c859e-a94f-471b-9812-2b89cef38af5}</Project>
+      <Name>GoDrive.Common.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
