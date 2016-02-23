@@ -25,7 +25,7 @@
         [MaxLength(30)]
         public string LastName { get; set; }
 
-        // [Range(16, 130)]
+        [Range(16, 130)]
         public int Age { get; set; }
 
         public int? OrganizationId { get; set; }

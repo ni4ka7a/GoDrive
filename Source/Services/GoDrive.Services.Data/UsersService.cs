@@ -42,5 +42,42 @@
                 .All()
                 .Where(u => u.JoinedOrganizationId == organizationId);
         }
+
+        public IQueryable<User> GetAllWithDeleted()
+        {
+            return this.users
+                 .AllWithDeleted();
+        }
+
+        public void Update(User user)
+        {
+            var userToUpdate = this.users
+                .AllWithDeleted()
+                .Where(x => x.Id == user.Id)
+                .FirstOrDefault();
+
+            if (userToUpdate != null)
+            {
+                userToUpdate.FirstName = user.FirstName;
+                userToUpdate.LastName = user.LastName;
+                userToUpdate.Age = user.Age;
+
+                this.users.Save();
+            }
+        }
+
+        public void Delete(string id)
+        {
+            var userToDelete = this.users
+                .All()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+
+            if (userToDelete != null)
+            {
+                this.users.HardDelete(userToDelete);
+                this.users.Save();
+            }
+        }
     }
 }
