@@ -4,10 +4,13 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+    using Data.Models;
     using GoDrive.Web.ViewModels.Manage;
+    using Infrastructure.Mapping;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
+    using Services.Data.Contracts;
 
     [Authorize]
     public class ManageController : BaseController
@@ -19,8 +22,11 @@
 
         private ApplicationUserManager userManager;
 
-        public ManageController()
+        private IUsersService users;
+
+        public ManageController(IUsersService users)
         {
+            this.users = users;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -73,6 +79,31 @@
         }
 
         private IAuthenticationManager AuthenticationManager => this.HttpContext.GetOwinContext().Authentication;
+
+        public ActionResult PersonalInformation()
+        {
+            var currentUserId = this.User.Identity.GetUserId();
+            var currentUser = this.users
+                .GetAll()
+                .Where(x => x.Id == currentUserId)
+                .To<PersonalInformationViewModel>()
+                .FirstOrDefault();
+
+            return this.View(currentUser);
+        }
+
+        [HttpPost]
+        public ActionResult PersonalInformation(PersonalInformationViewModel model)
+        {
+            if (model != null && this.ModelState.IsValid)
+            {
+                var userToUpdate = this.Mapper.Map<User>(model);
+                this.users.Update(userToUpdate);
+                return this.RedirectToAction("Index");
+            }
+
+            return this.View(model);
+        }
 
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

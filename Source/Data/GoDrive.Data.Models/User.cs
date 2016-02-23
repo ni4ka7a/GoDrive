@@ -19,9 +19,11 @@
             this.driveEvents = new HashSet<DriveEvent>();
         }
 
+        [Required]
         [MaxLength(30)]
         public string FirstName { get; set; }
 
+        [Required]
         [MaxLength(30)]
         public string LastName { get; set; }
 
