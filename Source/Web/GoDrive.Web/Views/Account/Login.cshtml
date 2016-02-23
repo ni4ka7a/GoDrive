@@ -17,10 +17,10 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.Email, new {  })
-                        @Html.LabelFor(m => m.Email, new { @for= "icon_prefix" })
+                        @Html.TextBoxFor(m => m.Username, new {  })
+                        @Html.LabelFor(m => m.Username, new { @for= "icon_prefix" })
                         <div>
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red-text" })
+                            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "red-text" })
                         </div>
                     </div>
                 </div>
