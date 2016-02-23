@@ -13,7 +13,7 @@
         private OrganizationsController organizationsController;
 
         [TestInitialize]
-        public void PlanetAreaControllerTestsSetup()
+        public void Setup()
         {
             var autoMapperConfig = new AutoMapperConfig();
             autoMapperConfig.Execute(typeof(OrganizationsController).Assembly);

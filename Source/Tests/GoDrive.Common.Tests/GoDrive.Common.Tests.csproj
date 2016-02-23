@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fakes\FakeJoinOrganizationService.cs" />
     <Compile Include="Fakes\FakeOrganizationImagesService.cs" />
     <Compile Include="Fakes\FakeOrganizationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
