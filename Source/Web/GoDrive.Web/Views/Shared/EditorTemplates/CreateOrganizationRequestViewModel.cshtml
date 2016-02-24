@@ -13,6 +13,17 @@
 
 <div class="row">
     <div class="input-field col s6">
+        <i class="material-icons prefix">phone</i>
+        @Html.EditorFor(m => m.PhoneNumber, new { })
+        @Html.LabelFor(m => m.PhoneNumber, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "red-text" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s6">
         <i class="material-icons prefix">info_outline</i>
         @Html.EditorFor(m => m.OrganizationDescription, new { })
         @Html.LabelFor(m => m.OrganizationDescription, new { @for = "icon_prefix" })

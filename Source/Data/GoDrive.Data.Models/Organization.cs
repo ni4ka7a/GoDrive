@@ -25,7 +25,6 @@
         [MaxLength(3000)]
         public string AboutInfo { get; set; }
 
-        [Required]
         [MaxLength(20)]
         public string PhoneNumber { get; set; }
 

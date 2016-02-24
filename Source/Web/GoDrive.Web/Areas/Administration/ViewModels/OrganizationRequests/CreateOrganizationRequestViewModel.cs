@@ -25,6 +25,10 @@
 
         public DateTime CreatedOn { get; set; }
 
+        [Required]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
+
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<CreateOrganizationRequest, CreateOrganizationRequestViewModel>()

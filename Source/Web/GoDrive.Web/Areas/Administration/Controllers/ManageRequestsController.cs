@@ -41,7 +41,8 @@
             {
                 Name = model.OrganizationName,
                 AboutInfo = model.OrganizationDescription,
-                UserId = model.UserId
+                UserId = model.UserId,
+                PhoneNumber = model.PhoneNumber
             };
 
             var isCreated = this.organizations.Create(organizationToCreate);

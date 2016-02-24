@@ -16,5 +16,9 @@
         [Display(Name = "About The Organization")]
         [MaxLength(3000)]
         public string OrganizationDescription { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
     }
 }
