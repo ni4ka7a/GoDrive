@@ -139,7 +139,8 @@
 
             if (organizationOwner != null)
             {
-                this.users.HardDelete(organizationOwner);
+                organizationOwner.Organization = null;
+                organizationOwner.OrganizationId = null;
                 this.users.Save();
             }
         }
