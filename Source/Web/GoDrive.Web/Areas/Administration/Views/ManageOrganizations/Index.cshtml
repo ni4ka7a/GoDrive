@@ -8,17 +8,18 @@
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.Id).HeaderHtmlAttributes(new { title = "id" });
-          columns.Bound(c => c.Name).HeaderHtmlAttributes(new { title = "Name" });
-          columns.Bound(c => c.AboutInfo).HeaderHtmlAttributes(new { title = "Additional Information" });
-          columns.Bound(c => c.OwnerEmail).HeaderHtmlAttributes(new { title = "Owner Email" });
-          columns.Bound(c => c.OwnerUsername).HeaderHtmlAttributes(new { title = "Owner Username" });
-          columns.Bound(c => c.JoinedUsersCount).HeaderHtmlAttributes(new { title = "Joined Users" });
-          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
-          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
-          columns.Bound(c => c.IsDeleted).HeaderHtmlAttributes(new { title = "Is Deleted" });
+          columns.Bound(c => c.Id).Width(130).HeaderHtmlAttributes(new { title = "id" });
+          columns.Bound(c => c.Name).Width(130).HeaderHtmlAttributes(new { title = "Name" });
+          columns.Bound(c => c.AboutInfo).Width(130).HeaderHtmlAttributes(new { title = "Additional Information" });
+          columns.Bound(c => c.OwnerEmail).Width(130).HeaderHtmlAttributes(new { title = "Owner Email" });
+          columns.Bound(c => c.OwnerUsername).Width(130).HeaderHtmlAttributes(new { title = "Owner Username" });
+          columns.Bound(c => c.JoinedUsersCount).Width(130).HeaderHtmlAttributes(new { title = "Joined Users" });
+          columns.Bound(c => c.CreatedOn).Width(130).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
+          columns.Bound(c => c.ModifiedOn).Width(130).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
+          columns.Bound(c => c.IsDeleted).Width(130).HeaderHtmlAttributes(new { title = "Is Deleted" });
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
+      .Scrollable()
       .ToolBar(toolbar =>
       {
       })
