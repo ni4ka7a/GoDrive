@@ -126,10 +126,21 @@
             var organizationToDelete = this.organizations
                 .GetById(id);
 
+            var organizationOwner = this.users
+                .All()
+                .Where(x => x.Id == organizationToDelete.UserId)
+                .FirstOrDefault();
+
             if (organizationToDelete != null)
             {
                 this.organizations.Delete(organizationToDelete);
                 this.organizations.Save();
+            }
+
+            if (organizationOwner != null)
+            {
+                this.users.HardDelete(organizationOwner);
+                this.users.Save();
             }
         }
     }
