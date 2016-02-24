@@ -6,5 +6,9 @@
     public class IndexViewModel
     {
         public IEnumerable<OrganizationViewModel> Organizations { get; set; }
+
+        public int UsersCount { get; set; }
+
+        public int OrganizationsCount { get; set; }
     }
 }

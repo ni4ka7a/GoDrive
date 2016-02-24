@@ -11,10 +11,12 @@
     public class HomeController : BaseController
     {
         private IOrganizationsService organizations;
+        private IUsersService users;
 
-        public HomeController(IOrganizationsService organizations)
+        public HomeController(IOrganizationsService organizations, IUsersService users)
         {
             this.organizations = organizations;
+            this.users = users;
         }
 
         public ActionResult Index()
@@ -27,9 +29,21 @@
                 .ToList(),
                 30 * 60);
 
+            var usersCount = this.Cache.Get(
+                "usersCount",
+                () => this.users.GetAll().Count(),
+                30 * 60);
+
+            var organizationsCount = this.Cache.Get(
+                "usersCount",
+                () => this.organizations.GetAll().Count(),
+                30 * 60);
+
             var model = new IndexViewModel()
             {
-                Organizations = topOrganizations
+                Organizations = topOrganizations,
+                UsersCount = usersCount,
+                OrganizationsCount = organizationsCount
             };
 
             return this.View(model);
