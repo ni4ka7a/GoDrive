@@ -19,6 +19,15 @@ Telerik Academy Asp.NET MVC 5 Project
 
 **Need any Help?** - Go to the Contact page and don't hesitate to get in touch with an Administrator any time.
 
+**Public Part** - Anonymous users can review the Home page, the About page, the Contacts page, browse through all the companies and Login or Register.
+
+**Private Part:**
+* **Authorized users** can Apply for creating their own company and Apply for joiniing an existing company.
+* **Company Owners** can manage thier company public information - Name, Description, Contacts, Images, manage the Schedule of their users, and process incoming request from users.
+* **Users joined in Company** can review their Schedule and their current progress (drived hours, hours left to drive).
+
+**Administration part** - Administrator users can process incoming requests for creating companies, create companies for users, manage all users and all companies in the application (Edit, Delete).
+
 **Used Technologies:**
 * [Asp.Net MVC5](http://www.asp.net/mvc/mvc5) - Model view controller framework for building dynamic web sites with clean separation of concerns
 * [EntityFramework 6](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) - data access technology for Applications in .NET.
