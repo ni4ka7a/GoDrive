@@ -75,6 +75,20 @@
 
             if (userToDelete != null)
             {
+                if (userToDelete.OrganizationId != null)
+                {
+                    var organizationToDelete = this.organizations
+                        .All()
+                        .Where(x => x.Id == userToDelete.OrganizationId)
+                        .FirstOrDefault();
+
+                    if (organizationToDelete != null)
+                    {
+                        this.organizations.Delete(organizationToDelete);
+                        this.organizations.Save();
+                    }
+                }
+
                 this.users.HardDelete(userToDelete);
                 this.users.Save();
             }
