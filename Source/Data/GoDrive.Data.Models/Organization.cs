@@ -25,6 +25,10 @@
         [MaxLength(3000)]
         public string AboutInfo { get; set; }
 
+        [Required]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
+
         public string UserId { get; set; }
 
         public User User { get; set; }

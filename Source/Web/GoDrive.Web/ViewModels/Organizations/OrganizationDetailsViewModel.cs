@@ -19,6 +19,8 @@
 
         public DateTime CreatedOn { get; set; }
 
+        public string PhoneNumber { get; set; }
+
         public string OrganizationImageUrl { get; set; }
 
         public ICollection<string> CarImages { get; set; }

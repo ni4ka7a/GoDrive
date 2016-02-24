@@ -11,6 +11,8 @@
 
         public string AboutInfo { get; set; }
 
+        public string PhoneNumber { get; set; }
+
         public string OrganizationImageUrl { get; set; }
     }
 }

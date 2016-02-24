@@ -17,5 +17,9 @@
         [DataType(DataType.MultilineText)]
         [Display(Name = "Aditional Information")]
         public string AboutInfo { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
     }
 }

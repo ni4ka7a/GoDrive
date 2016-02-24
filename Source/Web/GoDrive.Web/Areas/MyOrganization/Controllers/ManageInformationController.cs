@@ -47,7 +47,8 @@
                 {
                     Id = model.Id,
                     AboutInfo = model.AboutInfo,
-                    Name = model.Name
+                    Name = model.Name,
+                    PhoneNumber = model.PhoneNumber
                 };
 
                 // TODO: Extract this logic somewhere

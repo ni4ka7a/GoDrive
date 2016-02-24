@@ -65,6 +65,7 @@
 
             organizationToUpdate.AboutInfo = organization.AboutInfo;
             organizationToUpdate.Name = organization.Name;
+            organizationToUpdate.PhoneNumber = organization.PhoneNumber;
 
             if (organization.OrganizationImage != null)
             {
