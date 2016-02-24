@@ -81,7 +81,6 @@
                 percentage = totalHours / 32;
             }
 
-
             var model = new MyProgressViewModel()
             {
                 CurrentProgress = percentage,

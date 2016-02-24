@@ -36,7 +36,9 @@
                 // Create admin user
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User {
+
+                var user = new User
+                {
                     UserName = AdministratorUserName,
                     Email = AdministratorUserName,
                     CreatedOn = DateTime.Now,
@@ -44,14 +46,13 @@
                     LastName = "Admin",
                     Age = 20
                 };
+
                 userManager.Create(user, AdministratorPassword);
 
-                // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
             }
 
             this.SeedDefaultOrganizationImage(context);
-            //this.SeedOrganizations(context);
         }
 
         private void SeedDefaultOrganizationImage(ApplicationDbContext context)

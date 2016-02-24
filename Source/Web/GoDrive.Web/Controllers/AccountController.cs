@@ -169,7 +169,8 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User {
+                var user = new User
+                {
                     UserName = model.Username,
                     Email = model.Email,
                     FirstName = model.FirstName,
