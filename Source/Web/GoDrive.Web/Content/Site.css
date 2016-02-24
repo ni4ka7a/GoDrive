@@ -117,3 +117,8 @@ textarea {
     width: 100%;
     display: block;
 }
+
+.carousel-item img {
+    width: 600px;
+    height: 200px;
+}
