@@ -8,17 +8,17 @@
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.Id).HeaderHtmlAttributes(new { title = "id" });
-          columns.Bound(c => c.Username).HeaderHtmlAttributes(new { title = "Username" });
-          columns.Bound(c => c.Email).HeaderHtmlAttributes(new { title = "Email" });
-          columns.Bound(c => c.FirstName).HeaderHtmlAttributes(new { title = "First Name" });
-          columns.Bound(c => c.LastName).HeaderHtmlAttributes(new { title = "Last Name" });
-          columns.Bound(c => c.Age).HeaderHtmlAttributes(new { title = "Age" });
-          columns.Bound(c => c.JoinedOrganizationId).HeaderHtmlAttributes(new { title = "Joined Organization Id" });
-          columns.Bound(c => c.OrganizationId).HeaderHtmlAttributes(new { title = "Own Organization Id" });
-          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
-          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
-          columns.Bound(c => c.IsDeleted).HeaderHtmlAttributes(new { title = "Is Deleted" });
+          columns.Bound(c => c.Id).Width(130).HeaderHtmlAttributes(new { title = "id" });
+          columns.Bound(c => c.Username).Width(130).HeaderHtmlAttributes(new { title = "Username" });
+          columns.Bound(c => c.Email).Width(130).HeaderHtmlAttributes(new { title = "Email" });
+          columns.Bound(c => c.FirstName).Width(130).HeaderHtmlAttributes(new { title = "First Name" });
+          columns.Bound(c => c.LastName).Width(130).HeaderHtmlAttributes(new { title = "Last Name" });
+          columns.Bound(c => c.Age).Width(130).HeaderHtmlAttributes(new { title = "Age" });
+          columns.Bound(c => c.JoinedOrganizationId).Width(130).HeaderHtmlAttributes(new { title = "Joined Organization Id" });
+          columns.Bound(c => c.OrganizationId).Width(130).HeaderHtmlAttributes(new { title = "Own Organization Id" });
+          columns.Bound(c => c.CreatedOn).Width(130).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
+          columns.Bound(c => c.ModifiedOn).Width(130).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
+          columns.Bound(c => c.IsDeleted).Width(130).HeaderHtmlAttributes(new { title = "Is Deleted" });
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar =>
