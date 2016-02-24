@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity
+@using GoDrive.Extensions
+
+<ul class="side-nav white-text" id="mobile-demo">
+    <li>
+        @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    <li>
+        @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    @if (User.IsInRole("Administrator"))
+            {
+        <li>
+            @Html.ActionLink("Administration", "Index", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "white-text text-accent-4" })
+        </li>
+    }
+
+    @if (this.User.Identity.GetOrganizationId() != string.Empty)
+            {
+        <li>
+            @Html.ActionLink("MyOrganization", "Index", "Home", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+        </li>
+    }
+
+    <li>
+        @Html.ActionLink("MySchedule", "MyScheduler", "JoinedOrganization", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+    </li>
+
+    <li>
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4 white-text" })
+    </li>
+
+    <li><a class="aves-effect waves-light btn deep-purple darken-4 white-text" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>

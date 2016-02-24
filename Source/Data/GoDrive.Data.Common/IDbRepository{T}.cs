@@ -7,16 +7,11 @@
     public interface IDbRepository<T>
         where T : class, IDeletableEntity, IAuditInfo
     {
-    }
-
-    public interface IDbRepository<T, in TKey>
-        where T : BaseModel<TKey>
-    {
         IQueryable<T> All();
 
         IQueryable<T> AllWithDeleted();
 
-        T GetById(TKey id);
+        T GetById(object id);
 
         void Add(T entity);
 

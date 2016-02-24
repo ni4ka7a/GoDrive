@@ -1,0 +1,26 @@
+﻿@model GoDrive.Web.Areas.Administration.ViewModels.OrganizationRequests.CreateOrganizationRequestViewModel
+
+<tr>
+    <td>@Model.UserName</td>
+    <td>@Model.OrganizationName</td>
+    <td>@Model.OrganizationDescription</td>
+    <td>@Model.CreatedOn</td>
+    <td>@Model.IsProceed</td>
+    <td>
+
+        @using (Html.BeginForm("CreateOrganization", "ManageRequests", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" value="@Model.Id" name="Id" />
+                        <input type="hidden" value="@Model.OrganizationName" name="OrganizationName" />
+                        <input type="hidden" value="@Model.OrganizationDescription" name="OrganizationDescription" />
+                        <input type="hidden" value="@Model.UserId" name="UserId" />
+
+                        <button type="submit" class="aves-effect waves-light btn deep-purple darken-4">Create</button>
+        }
+
+    </td>
+    <td>
+        @Html.ActionLink("Done", "ProceedRequest", "ManageRequests", routeValues: new { id = Model.Id, area = "Administration" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+    </td>
+</tr>

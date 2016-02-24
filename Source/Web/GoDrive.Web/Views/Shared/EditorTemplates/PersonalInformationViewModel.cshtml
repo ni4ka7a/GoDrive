@@ -1,0 +1,57 @@
+﻿@model GoDrive.Web.ViewModels.Manage.PersonalInformationViewModel
+
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">email</i>
+        @Html.TextBoxFor(m => m.Email, new { @readonly = "readonly" })
+        @Html.LabelFor(m => m.Email, new { @for = "icon_prefix" })
+    </div>
+
+    <div class="input-field col s6">
+        <i class="material-icons prefix">perm_identity</i>
+        @Html.TextBoxFor(m => m.Username, new { @readonly = "readonly" })
+        @Html.LabelFor(m => m.Username, new { @for = "icon_prefix" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        @Html.TextBoxFor(m => m.FirstName, new { })
+        @Html.LabelFor(m => m.FirstName, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "red-text" })
+        </div>
+    </div>
+
+    <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        @Html.TextBoxFor(m => m.LastName, new { })
+        @Html.LabelFor(m => m.LastName, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "red-text" })
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="input-field col s6">
+        <i class="material-icons prefix">info</i>
+        @Html.TextBoxFor(m => m.Age, new { })
+        @Html.LabelFor(m => m.Age, new { @for = "icon_prefix" })
+        <div>
+            @Html.ValidationMessageFor(m => m.Age, "", new { @class = "red-text" })
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button class="btn waves-effect waves-light deep-purple darken-4" type="submit" name="action">
+            Update
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</div>

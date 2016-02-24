@@ -1,0 +1,39 @@
+﻿@model GoDrive.Web.ViewModels.Organizations.OrganizationListViewModel
+
+<h2 class="white-text">All Organizations:</h2>
+
+<hr />
+
+<div id="all-organizations-wrapper">
+    <div class="row">
+
+        @foreach (var organization in Model.Organizations)
+        {
+            @Html.DisplayFor(x => organization)
+        }
+    </div>
+
+    <ul class="pagination">
+        @if (Model.CurrentPage > 1)
+        {
+            <li class="waves-effect"><a class="" href="/Organizations/index?page=@(Model.CurrentPage - 1)"><i class="material-icons">chevron_left</i></a></li>
+
+        }
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            var activeClass = string.Empty;
+            if (Model.CurrentPage == i)
+            {
+                activeClass = "active";
+            }
+
+            <li class="waves-effect @activeClass"><a class="deep-purple-text text-darken-4" href="/Organizations/index?page=@i">@i</a></li>
+        }
+
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <li class="waves-effect"><a class="deep-purple-text text-darken-4" href="/Organizations/index?page=@(Model.CurrentPage + 1)"><i class="material-icons">chevron_right</i></a></li>
+        }
+    </ul>
+
+</div>

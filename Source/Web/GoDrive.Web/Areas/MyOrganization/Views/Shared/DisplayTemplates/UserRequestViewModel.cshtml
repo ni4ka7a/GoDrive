@@ -1,0 +1,17 @@
+﻿@model GoDrive.Web.Areas.MyOrganization.ViewModels.UserRequestViewModel
+
+<tr>
+    <td>@Model.Username</td>
+    <td>@Model.FirstName</td>
+    <td>@Model.LastName</td>
+    <td>@Model.Age</td>
+    <td>@Model.AdditionalInformation</td>
+    <td>@Model.CreatedOn</td>
+    <td>@Model.IsProceed</td>
+    <td>
+        @Html.ActionLink("Add", "AddToOrganization", "ManageRequests", routeValues: new { userId = Model.UserId, requestId = Model.Id, area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+    </td>
+    <td>
+        @Html.ActionLink("Decline", "RejectToOrganization", "ManageRequests", routeValues: new { userId = Model.UserId, id = Model.Id, area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+    </td>
+</tr>

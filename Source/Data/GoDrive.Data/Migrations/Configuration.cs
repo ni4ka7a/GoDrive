@@ -29,19 +29,43 @@
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
                 var role = new IdentityRole { Name = GlobalConstants.AdministratorRoleName };
+                var ownerRole = new IdentityRole { Name = GlobalConstants.OrganizationOwnerRoleName };
                 roleManager.Create(role);
+                roleManager.Create(ownerRole);
 
                 // Create admin user
                 var userStore = new UserStore<User>(context);
                 var userManager = new UserManager<User>(userStore);
-                var user = new User { UserName = AdministratorUserName, Email = AdministratorUserName, CreatedOn = DateTime.Now};
+                var user = new User {
+                    UserName = AdministratorUserName,
+                    Email = AdministratorUserName,
+                    CreatedOn = DateTime.Now,
+                    FirstName = "Admin",
+                    LastName = "Admin",
+                    Age = 20
+                };
                 userManager.Create(user, AdministratorPassword);
 
                 // Assign user to admin role
                 userManager.AddToRole(user.Id, GlobalConstants.AdministratorRoleName);
             }
 
-            this.SeedOrganizations(context);
+            this.SeedDefaultOrganizationImage(context);
+            //this.SeedOrganizations(context);
+        }
+
+        private void SeedDefaultOrganizationImage(ApplicationDbContext context)
+        {
+            if (!context.OrganizationImages.Any())
+            {
+                context.OrganizationImages.Add(new OrganizationImage()
+                {
+                    Name = GlobalConstants.DefaultImageName,
+                    Url = GlobalConstants.DefaultImagePath
+                });
+
+                context.SaveChanges();
+            }
         }
 
         private void SeedOrganizations(ApplicationDbContext context)
@@ -49,14 +73,16 @@
             if (!context.Organizations.Any())
             {
                 var owner = context.Users.FirstOrDefault();
+                var defaultImage = context.OrganizationImages.FirstOrDefault();
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     var organization = new Organization()
                     {
                         Name = $"Org {i}",
                         AboutInfo = $"some info {i}",
-                        Owner = owner
+                        User = owner,
+                        OrganizationImage = defaultImage
                     };
 
                     context.Organizations.Add(organization);

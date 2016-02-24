@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNet.Identity
+@using GoDrive.Extensions
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = string.Empty }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
+            <li>
+                @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
+            @if (User.IsInRole("Administrator"))
+            {
+                <li>
+                    @Html.ActionLink("Administration", "Index", "Administration", routeValues: new { area = "Administration" }, htmlAttributes: new { @class = "white-text text-accent-4" })
+                </li>
+            }
+
+            @if (this.User.Identity.GetOrganizationId() != string.Empty)
+            {
+                <li>
+                    @Html.ActionLink("MyOrganization", "Index", "Home", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+                </li>
+            }
+
+            <li>
+                @Html.ActionLink("MySchedule", "MyScheduler", "JoinedOrganization", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+            </li>
+
+            <li><a class="aves-effect waves-light btn deep-purple darken-4" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+        //For Mobile
+
+        @Html.Partial("_MobileNavigationForAuthorized")
+
+    }
+}
+else
+{
+    <ul class="right hide-on-med-and-down">
+        <li>
+            @Html.ActionLink("Organizations", "Index", "Organizations", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+        </li>
+
+        <li>
+            @Html.ActionLink("About", "About", "Home", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "white-text text-accent-4" })
+        </li>
+
+        <li>
+            @Html.ActionLink("Register", "Register", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
+       {
+           id = "registerLink",
+           @class = "aves-effect waves-light btn deep-purple darken-4"
+       })
+        </li>
+
+        <li>
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = string.Empty }, htmlAttributes: new
+       {
+           id = "loginLink",
+           @class = "aves-effect waves-light btn deep-purple darken-4"
+       })
+        </li>
+    </ul>
+    //For mobile
+    @Html.Partial("_MobileNavigationForUnAuthorized")
+}

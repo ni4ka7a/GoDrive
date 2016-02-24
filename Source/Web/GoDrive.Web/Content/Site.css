@@ -34,32 +34,91 @@ textarea {
 
 #login-wrapper .input-field input[type=text], #register-wrapper .input-field input[type=text] {
     border-bottom: 1px solid white;
-     box-shadow: 0 1px 0 0 white;
+    box-shadow: 0 1px 0 0 white;
 }
 
 #login-wrapper .input-field input[type=password], #register-wrapper .input-field input[type=password] {
     border-bottom: 1px solid white;
-     box-shadow: 0 1px 0 0 white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+#login-wrapper .input-field textarea, #register-wrapper .input-field textarea {
+    border: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
 }
 
 #login-wrapper .input-field .prefix.active, #register-wrapper .input-field .prefix.active {
-     color: #000;
-   }
+    color: #000;
+}
+
+#register-wrapper input[readonly] {
+    color: #000;
+}
 
 /*#login-wrapper .input-field input[type=text]:focus {
      border-bottom: 1px solid #000;
      box-shadow: 0 1px 0 0 #000;
    }*/
 
-#change-password-wrapper .input-field .prefix.active, #register-wrapper .input-field .prefix.active {
-     color: #000;
-   }
-
-#change-password-wrapper .input-field input[type=password], #register-wrapper .input-field input[type=password] {
-    border-bottom: 1px solid white;
-     box-shadow: 0 1px 0 0 white;
+#change-password-wrapper .input-field .prefix.active {
+    color: #000;
 }
 
-#change-password-wrapper .input-field label, #register-wrapper .input-field label {
+#change-password-wrapper .input-field input[type=password] {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+#change-password-wrapper .input-field label {
     color: white;
+}
+
+#create-organization-wrapper .input-field label {
+    color: white;
+}
+
+#create-organization-wrapper .input-field .prefix.active {
+    color: #000;
+}
+
+#create-organization-wrapper .input-field input[type=text] {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+/*#all-organizations-wrapper img {
+    width : 275px;
+    height: 275px;
+}*/
+
+.side-nav.white-text {
+    background-color: #4DA9EF;
+}
+
+.card-image img {
+    width: 275px;
+    height: 160px;
+}
+
+.car-images .col {
+    margin-bottom: 1%;
+}
+
+.create-organization-link a:hover {
+    text-decoration: underline;
+}
+
+#progress-container {
+    width: 100px;
+    height: 100px;
+}
+
+#progress-container > svg {
+    width: 100%;
+    display: block;
+}
+
+.carousel-item img {
+    width: 600px;
+    height: 200px;
 }

@@ -15,7 +15,17 @@
         {
         }
 
+        public virtual IDbSet<CreateOrganizationRequest> CreateOrganizationRequests { get; set; }
+
+        public virtual IDbSet<JoinOrganizationRequest> JoinOrganizationRequests { get; set; }
+
+        public virtual IDbSet<OrganizationImage> OrganizationImages { get; set; }
+
+        public virtual IDbSet<CarImage> CarsImages { get; set; }
+
         public virtual IDbSet<Organization> Organizations { get; set; }
+
+        public virtual IDbSet<DriveEvent> DriveEvents { get; set; }
 
         public static ApplicationDbContext Create()
         {

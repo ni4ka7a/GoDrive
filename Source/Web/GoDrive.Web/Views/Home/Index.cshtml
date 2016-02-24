@@ -1,2 +1,28 @@
-﻿<h1>Hello</h1>
-<h2>This is a blank MVC template</h2>
+﻿@model GoDrive.Web.ViewModels.Home.IndexViewModel
+
+<h1 class="white-text">Get Your Driver License Now</h1>
+<h3 class="deep-purple-text text-darken-4">Top Companies:</h3>
+
+<div class="row">
+    @foreach (var organization in Model.Organizations)
+    {
+        @Html.DisplayFor(x => organization)
+    }
+
+</div>
+
+<div class="row center">
+    <h2 class="create-organization-link">
+        @Html.ActionLink("Apply For Your Own Organization Now", "Index", "ApplyForOrganization", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "deep-purple-text text-darken-4" })
+    </h2>
+</div>
+
+<div class="row center white-text">
+    <div class="col m6">
+        <h5>More than @Model.UsersCount Users</h5>
+    </div>
+
+    <div class="col m6">
+        <h5>More than @Model.OrganizationsCount Organizations</h5>
+    </div>
+</div>

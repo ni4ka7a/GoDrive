@@ -1,0 +1,20 @@
+﻿@model GoDrive.Web.ViewModels.JoinOrganization.JoinOrganizationViewModel
+
+<h2 class="white-text">Join Organization - @Model.OrganizationName</h2>
+
+<div id="register-wrapper" class="row">
+
+    @using (Html.BeginForm("Apply", "JoinOrganization", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary("", new { @class = "red-text" })
+
+        @Html.EditorFor(x => Model)
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

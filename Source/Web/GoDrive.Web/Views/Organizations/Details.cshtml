@@ -1,0 +1,11 @@
+﻿@model GoDrive.Web.ViewModels.Organizations.OrganizationDetailsViewModel
+
+@Html.DisplayFor(x => Model)
+
+@if (Model.CarImages.Count > 0)
+{
+    @section Scripts {
+       @Scripts.Render("~/bundles/imageGallery")
+    }
+}
+

@@ -1,0 +1,44 @@
+﻿
+<h2>Manage your Organization</h2>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li deep-purple darken-4>
+        <div class="collapsible-header deep-purple darken-4 white-text text-accent-4"><i class="material-icons">supervisor_account</i>Users</div>
+        <div class="collapsible-body">
+            <p>Manage All Joined Users.</p>
+            @Html.ActionLink("Manage", "Index", "ManageUsers", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+        </div>
+    </li>
+
+    <li deep-purple darken-4>
+        <div class="collapsible-header deep-purple darken-4 white-text text-accent-4"><i class="material-icons">email</i>User Requests</div>
+        <div class="collapsible-body">
+            <p>Manage User Requests.</p>
+            @Html.ActionLink("Manage", "Index", "ManageRequests", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+        </div>
+    </li>
+
+    <li deep-purple darken-4>
+        <div class="collapsible-header deep-purple darken-4 white-text text-accent-4"><i class="material-icons">query_builder</i>Organization Schedule</div>
+        <div class="collapsible-body">
+            <p>Manage Users Schedule.</p>
+            @Html.ActionLink("Manage", "Index", "Scheduler", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+        </div>
+    </li>
+
+    <li deep-purple darken-4>
+        <div class="collapsible-header deep-purple darken-4 white-text text-accent-4"><i class="material-icons">info_outline</i>Organization Info</div>
+        <div class="collapsible-body">
+            <p>Manage The Organization Basic Information - Title, Description, etc.</p>
+            @Html.ActionLink("Manage", "Index", "ManageInformation", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+        </div>
+    </li>
+
+    <li deep-purple darken-4>
+        <div class="collapsible-header deep-purple darken-4 white-text text-accent-4"><i class="material-icons">perm_media</i>Car Images</div>
+        <div class="collapsible-body">
+            <p>Manage The Organization Cars Images.</p>
+            @Html.ActionLink("Manage", "Index", "ManageCarImages", routeValues: new { area = "MyOrganization" }, htmlAttributes: new { @class = "aves-effect waves-light btn deep-purple darken-4" })
+        </div>
+    </li>
+</ul>

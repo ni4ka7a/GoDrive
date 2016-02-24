@@ -1,57 +1,50 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - GoDrive</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo")
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Scripts.Render("~/bundles/kendo")
+
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
-
     <div>
         <div class="center indigo darken-4 white-text">
-            Questions? Contact our award winning support team <a href="/contact" class="header-phone"><span class="icon-tel"></span>1-866-303-6061</a>
+            Questions? Contact our award winning support team <a href="/Home/Contact" class="header-phone"><span class="icon-tel"></span>1-866-303-6061</a>
         </div>
 
         <div id="nav-wrapper">
             <nav class="transparent">
                 <div class="nav-wrapper  white-text">
-                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo white-text" })
-                    @Html.Partial("_LoginPartial")
+                    @Html.ActionLink("GoDrive", "Index", "Home", new { area = string.Empty }, new { @class = "brand-logo deep-purple darken-4" })
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    @Html.Partial("_NavigationPartial")
                 </div>
             </nav>
         </div>
     </div>
-
+    
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - GoDrive</p>
-        </footer>
-    </div>
+        @Html.Partial("_FooterPartial")
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
+
 </body>
 </html>

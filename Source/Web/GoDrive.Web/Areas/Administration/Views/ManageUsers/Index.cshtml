@@ -1,0 +1,55 @@
+﻿@using Kendo.Mvc.UI
+<div class="center white-text">
+    <h2>Manage Users</h2>
+</div>
+
+
+@(Html.Kendo().Grid<GoDrive.Web.Areas.Administration.ViewModels.Users.UserGridViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id).HeaderHtmlAttributes(new { title = "id" });
+          columns.Bound(c => c.Username).HeaderHtmlAttributes(new { title = "Username" });
+          columns.Bound(c => c.Email).HeaderHtmlAttributes(new { title = "Email" });
+          columns.Bound(c => c.FirstName).HeaderHtmlAttributes(new { title = "First Name" });
+          columns.Bound(c => c.LastName).HeaderHtmlAttributes(new { title = "Last Name" });
+          columns.Bound(c => c.Age).HeaderHtmlAttributes(new { title = "Age" });
+          columns.Bound(c => c.JoinedOrganizationId).HeaderHtmlAttributes(new { title = "Joined Organization Id" });
+          columns.Bound(c => c.OrganizationId).HeaderHtmlAttributes(new { title = "Own Organization Id" });
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Created On" });
+          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}").HeaderHtmlAttributes(new { title = "Modified On" });
+          columns.Bound(c => c.IsDeleted).HeaderHtmlAttributes(new { title = "Is Deleted" });
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+      })
+      .HtmlAttributes(new { style = "height:550px;" })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.InLine))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model =>
+          {
+              model.Id(p => p.Id);
+              model.Field(x => x.Id).Editable(false);
+              model.Field(x => x.CreatedOn).Editable(false);
+              model.Field(x => x.IsDeleted).Editable(false);
+              model.Field(x => x.ModifiedOn).Editable(false);
+              model.Field(x => x.Username).Editable(false);
+              model.Field(x => x.Email).Editable(false);
+              model.Field(x => x.JoinedOrganizationId).Editable(false);
+              model.Field(x => x.OrganizationId).Editable(false);
+          })
+          .Read(read => read.Action("Users_Read", "ManageUsers"))
+          .Update(update => update.Action("Users_Update", "ManageUsers"))
+          .Destroy(destroy => destroy.Action("Users_Destroy", "ManageUsers"))
+      )
+)

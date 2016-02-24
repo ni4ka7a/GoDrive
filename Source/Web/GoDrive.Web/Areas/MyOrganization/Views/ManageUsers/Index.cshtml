@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GoDrive.Web.Areas.MyOrganization.ViewModels.ManageUserViewModel>
+
+<table class="centered">
+    <thead>
+        <tr class="white-text">
+            <th data-field="id">Username</th>
+            <th data-field="id">First Name</th>
+            <th data-field="name">Last Name</th>
+            <th data-field="price">Age</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+           @Html.DisplayFor(x => user)
+        }
+
+    </tbody>
+</table>

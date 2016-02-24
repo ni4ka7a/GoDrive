@@ -1,0 +1,16 @@
+﻿@model GoDrive.Web.ViewModels.JoinedOrganization.MyProgressViewModel
+
+<h2 class="white-text center">My Current Progress</h2>
+
+<div class="row white-text">
+    @Html.DisplayFor(x => Model)
+
+</div>
+
+<input type="hidden" id="currentProgress" value="@Model.CurrentProgress" />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/progressBar")
+    @Scripts.Render("~/bundles/progressBarInitialize")
+
+}

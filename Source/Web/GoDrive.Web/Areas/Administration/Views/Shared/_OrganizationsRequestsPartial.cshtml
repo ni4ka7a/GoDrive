@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GoDrive.Web.Areas.Administration.ViewModels.OrganizationRequests.CreateOrganizationRequestViewModel>
+
+<table class="centered">
+    <thead>
+        <tr class="white-text">
+            <th data-field="price">Username</th>
+            <th data-field="id">Organization Name</th>
+            <th data-field="name">Description</th>
+            <th data-field="price">Created On</th>
+            <th data-field="price">IsProceed</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var request in Model)
+        {
+            @Html.DisplayFor(x => request)
+        }
+
+    </tbody>
+</table>

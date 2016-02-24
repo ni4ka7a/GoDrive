@@ -1,0 +1,28 @@
+﻿@using Kendo.Mvc.UI
+
+<h2 class="white-text">My Schedule</h2>
+
+@(Html.Kendo().Scheduler<GoDrive.Web.ViewModels.JoinedOrganization.DriveEventViewModel>()
+    .Name("scheduler")
+    .Date(System.DateTime.UtcNow)
+    .StartTime(new DateTime(2013, 6, 13, 7, 00, 00))
+    .Height(600)
+    .Views(views =>
+    {
+        views.DayView();
+        views.WorkWeekView(workWeekView => workWeekView.Selected(true));
+        views.WeekView();
+        views.MonthView();
+    })
+    .Timezone("Etc/UTC")
+    .DataSource(d => d
+        .Model(m =>
+        {
+            m.Id(f => f.Id);
+            m.Field(f => f.Title).DefaultValue("Drive Lesson");
+            m.Field(f => f.UserID).DefaultValue(1);
+            m.Field(f => f.Title).DefaultValue("No title");
+        })
+        .Read(read => read.Action("Read", "JoinedOrganization"))
+    )
+)

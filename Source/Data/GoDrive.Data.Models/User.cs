@@ -12,24 +12,39 @@
 
     public class User : IdentityUser, IDeletableEntity, IAuditInfo
     {
+        private ICollection<DriveEvent> driveEvents;
+
+        public User()
+        {
+            this.driveEvents = new HashSet<DriveEvent>();
+        }
+
+        [Required]
         [MaxLength(30)]
         public string FirstName { get; set; }
 
+        [Required]
         [MaxLength(30)]
         public string LastName { get; set; }
 
-        // [Range(16, 130)]
+        [Range(16, 130)]
         public int Age { get; set; }
 
         public int? OrganizationId { get; set; }
 
-        public Organization Organization { get; set; }
+        public virtual Organization Organization { get; set; }
 
         public bool IsInOrganization { get; set; }
 
         public int? JoinedOrganizationId { get; set; }
 
-        public Organization JoinedOrganization { get; set; }
+        public virtual Organization JoinedOrganization { get; set; }
+
+        public virtual ICollection<DriveEvent> DriveEvents
+        {
+            get { return this.driveEvents; }
+            set { this.driveEvents = value; }
+        }
 
         // IAuditInfo and IDeletableEntity properties
         public bool IsDeleted { get; set; }
@@ -45,7 +60,8 @@
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
 
-            // Add custom user claims here
+            // Custom Claim for OrganizationId
+            userIdentity.AddClaim(new Claim("OrganizationId", this.OrganizationId.ToString()));
             return userIdentity;
         }
     }
