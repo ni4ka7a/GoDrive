@@ -1,6 +1,9 @@
 # GoDrive
 Telerik Academy Asp.NET MVC 5 Project
 
+### Build status
+[![Build status](https://ci.appveyor.com/api/projects/status/e7xklc7b9ei58hiq?svg=true)](https://ci.appveyor.com/project/NikolayAtanasow/godrive)
+
 **GoDrive** is a simple Web Application that help Users get their Driver License faster.
 
 **How?** - The Application brings all the companies that provide a _Driver License Service_ in one place and, so the users have an easy way to find the Company that is suitable to them.
