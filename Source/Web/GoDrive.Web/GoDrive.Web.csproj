@@ -405,6 +405,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MyProgressViewModel.cshtml" />
     <Content Include="Views\Manage\PersonalInformation.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PersonalInformationViewModel.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
