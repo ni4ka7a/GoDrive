@@ -37,3 +37,18 @@ Telerik Academy Asp.NET MVC 5 Project
 * [Autofac](http://autofac.org/) - Inversion of Control container for .NET
 * [Automapper](http://automapper.org/) - A convention-based object-object mapper
 * [Materialize](http://materializecss.com/) - A modern responsive front-end framework based on Material Design
+
+**Home Page**
+![Home page](DocumentationImages/homePage.png)
+
+**Organization Owner Panel**
+![Home page](DocumentationImages/manageOrganization.png)
+
+**My Schedule**
+![Home page](DocumentationImages/mySchedule.png)
+
+**My Progress**
+![Home page](DocumentationImages/myProgress.png)
+
+**Admin Panel**
+![Home page](DocumentationImages/adminPanel.png)
